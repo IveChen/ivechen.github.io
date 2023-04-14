@@ -76,7 +76,7 @@
         </el-descriptions-item>
       </el-descriptions>
     </el-card>
-    <el-card header="作为队友赢的次数" class="gutter-v" >
+    <el-card header="最佳队友" class="gutter-v" >
       <el-card :header="item.header" class="gutter-v" v-for="(item,index) in sameTeamMatchList" :key="index">
         <el-descriptions :column="4">
           <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
@@ -88,14 +88,14 @@
         </el-descriptions>
       </el-card>
     </el-card>
-    <el-card header="作为对手输的次数">
+    <el-card :header="`最惨对手(${nickName}赢的次数/作为对手的次数)`">
       <el-card :header="item.header" class="gutter-v" v-for="(item,index) in diffTeamMatchList" :key="index">
         <el-descriptions :column="4">
           <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
             <template #label>
               {{item.playerList.join('')}}
             </template>
-            <Percent :number1="item.loseCount" :number2="item.count"></Percent>
+            <Percent :number1="item.winCount" :number2="item.count"></Percent>
           </el-descriptions-item>
         </el-descriptions>
       </el-card>

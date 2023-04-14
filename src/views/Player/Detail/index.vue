@@ -59,7 +59,7 @@
         </el-descriptions-item>
       </el-descriptions>
     </el-card>
-    <el-card header="英雄对局数据" class="gutter-v">
+    <el-card :header="`英雄对局数据(共${heroList.length}个英雄)`" class="gutter-v">
       <el-descriptions>
         <el-descriptions-item :label="item.hero" v-for="(item,index) in heroList" :key="index">
           <template #label>

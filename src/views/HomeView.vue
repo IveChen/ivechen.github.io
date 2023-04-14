@@ -117,7 +117,6 @@ const heroList = heroManagement.heroList.sort((a, b) => {
 })
 
 const locationList = getLocationDataFromMatch(matchList)
-console.log(locationList)
 
 const router = useRouter()
 const handelGoPlayerDetail = (nickName) => {

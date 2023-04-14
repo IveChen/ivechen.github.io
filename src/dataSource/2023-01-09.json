@@ -1,0 +1,84 @@
+{
+  "matchDate": "2023-01-09",
+  "matchType": "TICU正赛",
+  "matchMemberBPMode": "全部定员",
+  "matchMode": "队长模式",
+  "matchTeamList": [
+    [
+      { "player": "孙", "order": "固定" },
+      { "player": "黄", "order": "固定" },
+      { "player": "解", "order": "固定" },
+      { "player": "仔", "order": "固定" },
+      { "player": "肠", "order": "固定" }
+    ],
+    [
+      { "player": "驴", "order": "固定" },
+      { "player": "兔", "order": "固定" },
+      { "player": "娟", "order": "固定" },
+      { "player": "鸽", "order": "固定" },
+      { "player": "桃", "order": "固定" }
+    ]
+  ],
+  "gameList": [
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 0,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [],
+      "teamList": [
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "孙", "hero": "克林克兹" },
+            { "player": "黄", "hero": "哈斯卡" },
+            { "player": "解", "hero": "沉默术士" },
+            { "player": "仔", "hero": "干扰者" },
+            { "player": "肠", "hero": "巫妖" }
+          ]
+        },
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "驴", "hero": "狙击手" },
+            { "player": "兔", "hero": "水晶室女" },
+            { "player": "娟", "hero": "雷泽" },
+            { "player": "鸽", "hero": "主宰" },
+            { "player": "桃", "hero": "小小" }
+          ]
+        }
+      ]
+    },
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 0,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [],
+      "teamList": [
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "孙", "hero": "光之守卫" },
+            { "player": "黄", "hero": "斯拉达" },
+            { "player": "解", "hero": "狙击手" },
+            { "player": "仔", "hero": "复仇之魂" },
+            { "player": "肠", "hero": "巫妖" }
+          ]
+        },
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "驴", "hero": "斯拉克" },
+            { "player": "兔", "hero": "天怒法师" },
+            { "player": "娟", "hero": "电炎绝手" },
+            { "player": "鸽", "hero": "虚空假面" },
+            { "player": "桃", "hero": "潮汐猎人" }
+          ]
+        }
+      ]
+    }
+  ],
+  "showCode": false,
+  "scoreList": [2, 0],
+  "playOffScoreList": [0, 0],
+  "winTeamIndex": 0
+}

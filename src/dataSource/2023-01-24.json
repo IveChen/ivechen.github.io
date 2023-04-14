@@ -1,0 +1,187 @@
+{
+  "matchDate": "2023-01-24",
+  "matchType": "TICU正赛",
+  "matchMemberBPMode": "全部定员",
+  "matchMode": "队长模式",
+  "matchTeamList": [
+    [
+      { "player": "孙", "order": "固定" },
+      { "player": "黄", "order": "固定" },
+      { "player": "鹅", "order": "固定" },
+      { "player": "喵", "order": "固定" },
+      { "player": "肠", "order": "固定" }
+    ],
+    [
+      { "player": "妖", "order": "固定" },
+      { "player": "兔", "order": "固定" },
+      { "player": "娟", "order": "固定" },
+      { "player": "鸽", "order": "固定" },
+      { "player": "桃", "order": "固定" }
+    ]
+  ],
+  "gameList": [
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 1,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [
+        "裂魂人",
+        "力丸",
+        "破晓辰星",
+        "克林克兹",
+        "巫妖",
+        "潮汐猎人",
+        "天怒法师",
+        "冥界亚龙",
+        "莉娜",
+        "斯拉克",
+        "影魔",
+        "卓尔游侠",
+        "痛苦女王",
+        "虚空假面",
+        "森海飞霞",
+        "死亡先知",
+        "噬魂鬼",
+        "主宰",
+        "殁境神蚀者",
+        "杰奇洛",
+        "风行者",
+        "树精卫士",
+        "水晶室女",
+        "狙击手"
+      ],
+      "teamList": [
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "孙", "hero": "死亡先知" },
+            { "player": "黄", "hero": "冥界亚龙" },
+            { "player": "鹅", "hero": "噬魂鬼" },
+            { "player": "喵", "hero": "巫妖" },
+            { "player": "肠", "hero": "水晶室女" }
+          ]
+        },
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "妖", "hero": "狙击手" },
+            { "player": "兔", "hero": "天怒法师" },
+            { "player": "娟", "hero": "森海飞霞" },
+            { "player": "鸽", "hero": "主宰" },
+            { "player": "桃", "hero": "潮汐猎人" }
+          ]
+        }
+      ]
+    },
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 0,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [
+        "裂魂人",
+        "力丸",
+        "潮汐猎人",
+        "斧王",
+        "巫妖",
+        "电炎绝手",
+        "獸",
+        "杰奇洛",
+        "痛苦女王",
+        "斯拉克",
+        "影魔",
+        "虚空假面",
+        "莉娜",
+        "噬魂鬼",
+        "天怒法师",
+        "玛尔斯",
+        "光之守卫",
+        "主宰",
+        "风行者",
+        "克林克兹",
+        "殁境神蚀者",
+        "敌法师",
+        "娜迦海妖",
+        "末日使者"
+      ],
+      "teamList": [
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "孙", "hero": "光之守卫" },
+            { "player": "黄", "hero": "杰奇洛" },
+            { "player": "鹅", "hero": "娜迦海妖" },
+            { "player": "喵", "hero": "玛尔斯" },
+            { "player": "肠", "hero": "巫妖" }
+          ]
+        },
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "妖", "hero": "末日使者" },
+            { "player": "兔", "hero": "天怒法师" },
+            { "player": "娟", "hero": "獸" },
+            { "player": "鸽", "hero": "主宰" },
+            { "player": "桃", "hero": "电炎绝手" }
+          ]
+        }
+      ]
+    },
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 1,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [
+        "裂魂人",
+        "力丸",
+        "潮汐猎人",
+        "娜迦海妖",
+        "巫妖",
+        "杰奇洛",
+        "小小",
+        "虚空假面",
+        "痛苦女王",
+        "斧王",
+        "莉娜",
+        "玛尔斯",
+        "影魔",
+        "冥界亚龙",
+        "森海飞霞",
+        "破晓辰星",
+        "光之守卫",
+        "暗夜魔王",
+        "殁境神蚀者",
+        "沉默术士",
+        "风行者",
+        "水晶室女",
+        "邪影芳灵",
+        "混沌骑士"
+      ],
+      "teamList": [
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "孙", "hero": "光之守卫" },
+            { "player": "黄", "hero": "邪影芳灵" },
+            { "player": "鹅", "hero": "虚空假面" },
+            { "player": "喵", "hero": "破晓辰星" },
+            { "player": "肠", "hero": "巫妖" }
+          ]
+        },
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "妖", "hero": "混沌骑士" },
+            { "player": "兔", "hero": "杰奇洛" },
+            { "player": "娟", "hero": "森海飞霞" },
+            { "player": "鸽", "hero": "暗夜魔王" },
+            { "player": "桃", "hero": "小小" }
+          ]
+        }
+      ]
+    }
+  ],
+  "showCode": false,
+  "scoreList": [1, 2],
+  "playOffScoreList": [0, 0],
+  "winTeamIndex": 1
+}

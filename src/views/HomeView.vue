@@ -95,6 +95,7 @@ import getMatchList from '@/utils/matchList'
 import { getPlayerDataFromMatch, getHeroDataFromMatch, getLocationDataFromMatch } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
+import dayjs from 'dayjs'
 
 const matchList = getMatchList()
 // 比赛场次
@@ -107,7 +108,11 @@ const gameCount = matchList.reduce((result, item) => {
 const playerManagement = getPlayerDataFromMatch(matchList)
 
 const playerList = playerManagement.playerList.sort((a, b) => {
-  return a.maxMatchWinCount < b.maxMatchWinCount ? 1 : -1
+  if (a.lastMatchDate === b.lastMatchDate) {
+    return a.matchFormCount < b.matchFormCount ? 1 : -1
+  } else {
+    return dayjs(a.lastMatchDate) < dayjs(b.lastMatchDate) ? 1 : -1
+  }
 })
 
 const heroManagement = getHeroDataFromMatch(matchList)

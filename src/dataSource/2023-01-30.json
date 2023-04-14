@@ -1,0 +1,134 @@
+{
+  "matchDate": "2023-01-30",
+  "matchType": "TICU正赛",
+  "matchMemberBPMode": "全部定员",
+  "matchMode": "队长模式",
+  "matchTeamList": [
+    [
+      { "player": "灿", "order": "固定" },
+      { "player": "驴", "order": "固定" },
+      { "player": "兔", "order": "固定" },
+      { "player": "鸽", "order": "固定" },
+      { "player": "桃", "order": "固定" }
+    ],
+    [
+      { "player": "孙", "order": "固定" },
+      { "player": "黄", "order": "固定" },
+      { "player": "鹅", "order": "固定" },
+      { "player": "喵", "order": "固定" },
+      { "player": "肠", "order": "固定" }
+    ]
+  ],
+  "gameList": [
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 0,
+      "bpFirstTeamIndex": { "name": "队伍一", "code": 0 },
+      "bpHeroQueue": [
+        "裂魂人",
+        "力丸",
+        "破晓辰星",
+        "雷泽",
+        "杰奇洛",
+        "巫妖",
+        "潮汐猎人",
+        "斧王",
+        "主宰",
+        "虚空假面",
+        "斯拉克",
+        "娜迦海妖",
+        "噬魂鬼",
+        "克林克兹",
+        "暗影萨满",
+        "沉默术士",
+        "光之守卫",
+        "司夜刺客",
+        "狙击手",
+        "卓尔游侠",
+        "编织者",
+        "敌法师",
+        "幻影长矛手",
+        "熊战士"
+      ],
+      "teamList": [
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "灿", "hero": "司夜刺客" },
+            { "player": "驴", "hero": "熊战士" },
+            { "player": "兔", "hero": "巫妖" },
+            { "player": "鸽", "hero": "暗影萨满" },
+            { "player": "桃", "hero": "潮汐猎人" }
+          ]
+        },
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "孙", "hero": "光之守卫" },
+            { "player": "黄", "hero": "斧王" },
+            { "player": "鹅", "hero": "幻影长矛手" },
+            { "player": "喵", "hero": "沉默术士" },
+            { "player": "肠", "hero": "杰奇洛" }
+          ]
+        }
+      ]
+    },
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 0,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [
+        "力丸",
+        "潮汐猎人",
+        "克林克兹",
+        "裂魂人",
+        "杰奇洛",
+        "雷泽",
+        "光之守卫",
+        "司夜刺客",
+        "冥界亚龙",
+        "斯拉克",
+        "斧王",
+        "主宰",
+        "沉默术士",
+        "狙击手",
+        "巫妖",
+        "破晓辰星",
+        "卓尔游侠",
+        "玛尔斯",
+        "邪影芳灵",
+        "不朽尸王",
+        "食人魔魔法师",
+        "",
+        "森海飞霞",
+        "炼金术士"
+      ],
+      "teamList": [
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "灿", "hero": "司夜刺客" },
+            { "player": "驴", "hero": "卓尔游侠" },
+            { "player": "兔", "hero": "杰奇洛" },
+            { "player": "鸽", "hero": "破晓辰星" },
+            { "player": "桃", "hero": "森海飞霞" }
+          ]
+        },
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "孙", "hero": "光之守卫" },
+            { "player": "黄", "hero": "炼金术士" },
+            { "player": "鹅", "hero": "雷泽" },
+            { "player": "喵", "hero": "玛尔斯" },
+            { "player": "肠", "hero": "巫妖" }
+          ]
+        }
+      ]
+    }
+  ],
+  "showCode": false,
+  "scoreList": [2, 0],
+  "playOffScoreList": [0, 0],
+  "winTeamIndex": 0
+}

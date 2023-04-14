@@ -1,0 +1,84 @@
+{
+  "matchDate": "2023-01-16",
+  "matchType": "TICU正赛",
+  "matchMemberBPMode": "全部定员",
+  "matchMode": "队长模式",
+  "matchTeamList": [
+    [
+      { "player": "孙", "order": "固定" },
+      { "player": "黄", "order": "固定" },
+      { "player": "解", "order": "固定" },
+      { "player": "仔", "order": "固定" },
+      { "player": "肠", "order": "固定" }
+    ],
+    [
+      { "player": "驴", "order": "固定" },
+      { "player": "兔", "order": "固定" },
+      { "player": "娟", "order": "固定" },
+      { "player": "鸽", "order": "固定" },
+      { "player": "桃", "order": "固定" }
+    ]
+  ],
+  "gameList": [
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 1,
+      "bpFirstTeamIndex": { "name": "队伍一", "code": 0 },
+      "bpHeroQueue": [],
+      "teamList": [
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "孙", "hero": "殁境神蚀者" },
+            { "player": "黄", "hero": "斯拉达" },
+            { "player": "解", "hero": "影魔" },
+            { "player": "仔", "hero": "巫妖" },
+            { "player": "肠", "hero": "祸乱之源" }
+          ]
+        },
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "驴", "hero": "编织者" },
+            { "player": "兔", "hero": "杰奇洛" },
+            { "player": "娟", "hero": "獸" },
+            { "player": "鸽", "hero": "破晓辰星" },
+            { "player": "桃", "hero": "光之守卫" }
+          ]
+        }
+      ]
+    },
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 1,
+      "bpFirstTeamIndex": { "name": "队伍一", "code": 0 },
+      "bpHeroQueue": [],
+      "teamList": [
+        {
+          "location": "近卫",
+          "heroList": [
+            { "player": "孙", "hero": "斧王" },
+            { "player": "黄", "hero": "冥界亚龙" },
+            { "player": "解", "hero": "狙击手" },
+            { "player": "仔", "hero": "复仇之魂" },
+            { "player": "肠", "hero": "戴泽" }
+          ]
+        },
+        {
+          "location": "天灾",
+          "heroList": [
+            { "player": "驴", "hero": "斯拉克" },
+            { "player": "兔", "hero": "杰奇洛" },
+            { "player": "娟", "hero": "獸" },
+            { "player": "鸽", "hero": "巫妖" },
+            { "player": "桃", "hero": "光之守卫" }
+          ]
+        }
+      ]
+    }
+  ],
+  "showCode": false,
+  "scoreList": [0, 2],
+  "playOffScoreList": [0, 0],
+  "winTeamIndex": 1
+}

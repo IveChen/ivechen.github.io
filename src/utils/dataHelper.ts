@@ -1,4 +1,5 @@
 import { PlayerManagement } from './Player'
+import { HeroManagement } from './Hero'
 import { getOpponentTeamIndex, combination } from './index'
 
 const getTeammate = (playerList, player) => {
@@ -71,4 +72,24 @@ export const getPlayerDataFromMatch = (matchList) => {
     })
   })
   return playerManagement
+}
+
+export const getHeroDataFromMatch = (matchList) => {
+  const heroManagement = new HeroManagement()
+  matchList.forEach((match) => {
+    match.gameList.forEach((game) => {
+      const loseGameTeamIndex = getOpponentTeamIndex(game.winTeamIndex)
+      const winGameTeam = game.teamList[game.winTeamIndex]
+      const loseGameTeam = game.teamList[loseGameTeamIndex]
+      winGameTeam.heroList.forEach((item) => {
+        const hero = heroManagement.getHero(item.hero)
+        hero.winGame(item.player)
+      })
+      loseGameTeam.heroList.forEach((item) => {
+        const hero = heroManagement.getHero(item.hero)
+        hero.loseGame(item.player)
+      })
+    })
+  })
+  return heroManagement
 }

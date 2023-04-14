@@ -6,9 +6,9 @@
     <el-col :span="6">
       <el-statistic title="参赛人数" :value="playerList.length" />
     </el-col>
-    <!-- <el-col :span="6">
-      <el-statistic title="总上场英雄" :value="heroLength" />
-    </el-col> -->
+    <el-col :span="6">
+      <el-statistic title="总上场英雄" :value="heroList.length" />
+    </el-col>
     <el-col :span="6">
       <el-statistic title="比赛次数" :value="matchCount" />
     </el-col>
@@ -16,7 +16,7 @@
       <el-statistic title="对局次数" :value="gameCount" />
     </el-col>
   </el-row>
-  <el-card header="人员状态">
+  <el-card header="人员数据" class="gutter-v">
     <el-table :data="playerList">
       <el-table-column label="名字" prop="nickName" fixed="left">
       </el-table-column>
@@ -54,6 +54,27 @@
       </el-table-column>
     </el-table>
   </el-card>
+  <el-card header="英雄数据">
+    <el-table :data="heroList" border stripe>
+      <el-table-column label="英雄">
+        <template #default="scope">
+          <Hero :name="scope.row.name"></Hero>
+        </template>
+      </el-table-column>
+      <el-table-column label="上场次数">
+        <template #default="scope">
+          <Percent :number1="scope.row.winCount" :number2="scope.row.count"></Percent>
+        </template>
+      </el-table-column>
+      <el-table-column label="使用人员">
+        <template #default="scope">
+          <div class="layout-h" v-for="(item,index) in scope.row.playerList" :key="index">
+            <span class="gutter-h">{{item.player}}</span><Percent :number1="item.winCount" :number2="item.count"></Percent>
+          </div>
+        </template>
+      </el-table-column>
+    </el-table>
+  </el-card>
 </template>
 
 <script lang="ts" setup>
@@ -62,8 +83,9 @@ import { computed, reactive, watch } from 'vue'
 // @ts-ignore
 import getMatchList from '@/utils/matchList'
 // @ts-ignore
-import { getPlayerDataFromMatch } from '@/utils/dataHelper'
+import { getPlayerDataFromMatch, getHeroDataFromMatch } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
+import Hero from '@/components/Hero/index.vue'
 
 const matchList = getMatchList()
 // 比赛场次
@@ -77,6 +99,12 @@ const playerManagement = getPlayerDataFromMatch(matchList)
 
 const playerList = playerManagement.playerList.sort((a, b) => {
   return a.maxMatchWinCount < b.maxMatchWinCount ? 1 : -1
+})
+
+const heroManagement = getHeroDataFromMatch(matchList)
+
+const heroList = heroManagement.heroList.sort((a, b) => {
+  return a.count < b.count ? 1 : -1
 })
 
 const router = useRouter()

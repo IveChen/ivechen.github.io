@@ -30,7 +30,7 @@
           <div class="color-danger">{{player.maxMatchWinCount}}</div>
         </el-descriptions-item>
         <el-descriptions-item label="比赛最长连败">
-          <div class="color-success">{{player.maxMatchWinCount}}</div>
+          <div class="color-success">{{player.maxMatchLoseCount}}</div>
         </el-descriptions-item>
         <el-descriptions-item label="当前比赛状态">
           <div v-if="player.matchFormCount > 0" class="color-danger">{{player.matchFormCount}}连胜</div>

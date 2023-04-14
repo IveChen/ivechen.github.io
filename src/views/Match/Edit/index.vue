@@ -79,7 +79,7 @@
             <div>
               {{game.bpHeroQueue?.length}}/24
             </div>
-            <el-select :placeholder="`选择英雄`" v-model="game.bpHeroQueue" filterable multiple style="width:100%">
+            <el-select :placeholder="`选择英雄(可以不选)`" v-model="game.bpHeroQueue" filterable multiple style="width:100%">
               <el-option v-for="(item,index) in HeroList" :key="index" :label="item.name_loc" :value="item.name_loc">
               </el-option>
               <el-option value="" label="跳过"></el-option>
@@ -109,7 +109,7 @@
     <div class="gutter-v" v-if="state.isLock">
       <el-button @click="handleAddGame" type="success" :icon="Plus">添加对局</el-button>
       <el-button @click="handleCopyConfig" type="success">复制下载配置</el-button>
-      <el-button type="success" @click="handleRefresh">刷新</el-button>
+      <el-button type="danger" style="margin-left:100px" @click="handleRefresh">清空</el-button>
     </div>
       <el-button @click="handleCheckConfig" v-if="!state.showCode">查看配置</el-button>
       <el-button @click="handleCheckConfig" v-if="state.showCode">收起配置</el-button>

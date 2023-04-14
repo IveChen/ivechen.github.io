@@ -57,20 +57,23 @@ export class Player {
     const captainList = list.filter((item) => {
       return item.orderName.indexOf('队长') !== -1
     })
-    const captainObj = captainList.reduce((result, item) => {
-      return {
-        orderName: result.orderName,
-        count: result.count + item.count,
-        winCount: result.winCount + item.winCount,
-        loseCount: result.loseCount + item.loseCount
-      }
-    }, {
-      orderName: '队长',
-      count: 0,
-      winCount: 0,
-      loseCount: 0
-    })
-    return [captainObj, ...notCaptainList]
+    if (captainList.length) {
+      const captainObj = captainList.reduce((result, item) => {
+        return {
+          orderName: result.orderName,
+          count: result.count + item.count,
+          winCount: result.winCount + item.winCount,
+          loseCount: result.loseCount + item.loseCount
+        }
+      }, {
+        orderName: '队长',
+        count: 0,
+        winCount: 0,
+        loseCount: 0
+      })
+      return [captainObj, ...notCaptainList]
+    }
+    return notCaptainList
   }
 
   setLastMatchDate (matchDate) {

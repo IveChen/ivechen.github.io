@@ -1,7 +1,7 @@
 <template>
   <div class="layout-padding">
     <div class="gutter-v">
-      <el-alert type="error" title="比赛配置完后，点击复制下载配置将文件给开发人员添加/覆盖数据即可"></el-alert>
+      <el-alert type="error" title="比赛配置完后，点击复制下载配置按钮将文件给开发人员添加/覆盖数据后重新打包即可"></el-alert>
     </div>
     <!-- 比赛基础设置 -->
     <el-card header="比赛设置" class="gutter-v">
@@ -37,7 +37,7 @@
               </el-select>
             </div>
             <div>
-              <el-select :placeholder="`选择队员${index+1}顺序`" v-model="state.form.matchTeamList[tindex][index].order" clearable  :disabled="state.isLock">
+              <el-select :placeholder="`选择队员${index+1}顺序`" v-model="state.form.matchTeamList[tindex][index].order" clearable :disabled="state.isLock">
                 <el-option v-for="(item,index) in finalPlayerOrderList" :key="index" :label="item" :value="item"></el-option>
               </el-select>
             </div>
@@ -172,9 +172,9 @@ const state = reactive({
   isLock: false
 })
 
-const key = 'match-edit'
 const route = useRoute()
 const { matchId } = route.query
+const key = `match-edit-${matchId}`
 const initData = () => {
   if (matchId) {
     const data = getMatchList().find((item) => {
@@ -185,7 +185,7 @@ const initData = () => {
       state.form = data
     }
   } else {
-    const data = sessionStorage.getItem(key)
+    const data = localStorage.getItem(key)
     if (data) {
       state.form = JSON.parse(data)
     }
@@ -247,7 +247,7 @@ const formatTeamName = (code) => {
 }
 
 watch(() => state.form, () => {
-  sessionStorage.setItem(key, JSON.stringify(state.form))
+  localStorage.setItem(key, JSON.stringify(state.form))
 }, {
   deep: true
 })

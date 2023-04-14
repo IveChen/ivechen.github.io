@@ -1,10 +1,10 @@
 <template>
   <div class="gutter-v">
-    <el-alert title="录入数据必然存在谬误和缺失，所以相关的数据仅能作为参考，不能作为最终结论。可点击上方查看已录入的比赛数据" type="error"></el-alert>
+    <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考，不能作为最终结论。您可点击上方查看已录入的比赛数据" type="error"></el-alert>
   </div>
   <el-row class="gutter-v">
     <el-col :span="6">
-      <el-statistic title="参赛人数" :value="playerManagement.playerList.length" />
+      <el-statistic title="参赛人数" :value="playerList.length" />
     </el-col>
     <!-- <el-col :span="6">
       <el-statistic title="总上场英雄" :value="heroLength" />
@@ -17,7 +17,7 @@
     </el-col>
   </el-row>
   <el-card header="人员状态">
-    <el-table :data="playerManagement.playerList">
+    <el-table :data="playerList">
       <el-table-column label="名字" prop="nickName">
       </el-table-column>
       <el-table-column label="参赛次数">
@@ -74,6 +74,10 @@ const gameCount = matchList.reduce((result, item) => {
 }, 0)
 
 const playerManagement = getPlayerDataFromMatch(matchList)
+
+const playerList = playerManagement.playerList.sort((a, b) => {
+  return a.maxMatchWinCount < b.maxMatchWinCount ? 1 : -1
+})
 
 const router = useRouter()
 const handelGoPlayerDetail = (nickName) => {

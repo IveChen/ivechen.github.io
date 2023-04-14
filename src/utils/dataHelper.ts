@@ -70,6 +70,5 @@ export const getPlayerDataFromMatch = (matchList) => {
       })
     })
   })
-  console.log(playerManagement)
   return playerManagement
 }

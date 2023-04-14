@@ -93,6 +93,11 @@ export const PlayerList = [
     fullName: '??',
     name: '法人',
     nickName: '法'
+  },
+  {
+    fullName: '李培楠',
+    name: '牛牛哥哥',
+    nickName: '牛'
   }
 ]
 // 选人模式 定员指跟队长一边

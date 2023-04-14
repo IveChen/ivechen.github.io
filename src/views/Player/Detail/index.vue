@@ -8,7 +8,7 @@
   </div>
   <template v-if="player">
     <el-card header="基础数据" class="gutter-v">
-      <el-descriptions :column="4">
+      <el-descriptions column="4">
         <el-descriptions-item label="自述">
           <div class="color-info">
             {{player.info.desc || '--'}}
@@ -60,7 +60,7 @@
       </el-descriptions>
     </el-card>
     <el-card header="英雄对局数据" class="gutter-v">
-      <el-descriptions :column="4">
+      <el-descriptions>
         <el-descriptions-item :label="item.hero" v-for="(item,index) in heroList" :key="index">
           <template #label>
             <Hero :name="item.hero"></Hero>
@@ -70,7 +70,7 @@
       </el-descriptions>
     </el-card>
     <el-card header="选马比赛数据" class="gutter-v">
-      <el-descriptions :column="4">
+      <el-descriptions>
         <el-descriptions-item :label="item.orderName" v-for="(item,index) in player.orderList" :key="index">
           <Percent :number1="item.winCount" :number2="item.count"></Percent>
         </el-descriptions-item>
@@ -78,7 +78,7 @@
     </el-card>
     <el-card header="最佳队友" class="gutter-v" >
       <el-card :header="item.header" class="gutter-v" v-for="(item,index) in sameTeamMatchList" :key="index">
-        <el-descriptions :column="4">
+        <el-descriptions>
           <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
             <template #label>
               {{item.playerList.join('')}}
@@ -90,7 +90,7 @@
     </el-card>
     <el-card :header="`最惨对手(${nickName}赢的次数/作为对手的次数)`">
       <el-card :header="item.header" class="gutter-v" v-for="(item,index) in diffTeamMatchList" :key="index">
-        <el-descriptions :column="4">
+        <el-descriptions>
           <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
             <template #label>
               {{item.playerList.join('')}}

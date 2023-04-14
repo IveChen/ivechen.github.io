@@ -18,7 +18,7 @@
   </el-row>
   <el-card header="人员状态">
     <el-table :data="playerList">
-      <el-table-column label="名字" prop="nickName">
+      <el-table-column label="名字" prop="nickName" fixed="left">
       </el-table-column>
       <el-table-column label="参赛次数">
         <template #default="scope">

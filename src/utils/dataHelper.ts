@@ -93,3 +93,32 @@ export const getHeroDataFromMatch = (matchList) => {
   })
   return heroManagement
 }
+
+export const getLocationDataFromMatch = (matchList) => {
+  const locationMap = {}
+  matchList.forEach((match) => {
+    match.gameList.forEach((game) => {
+      const loseGameTeamIndex = getOpponentTeamIndex(game.winTeamIndex)
+      const winGameTeam = game.teamList[game.winTeamIndex]
+      const loseGameTeam = game.teamList[loseGameTeamIndex]
+      if (!locationMap[winGameTeam.location]) {
+        locationMap[winGameTeam.location] = {
+          location: winGameTeam.location,
+          count: 0,
+          winCount: 0
+        }
+      }
+      locationMap[winGameTeam.location].count += 1
+      locationMap[winGameTeam.location].winCount += 1
+      if (!locationMap[loseGameTeam.location]) {
+        locationMap[loseGameTeam.location] = {
+          location: loseGameTeam.location,
+          count: 0,
+          winCount: 0
+        }
+      }
+      locationMap[loseGameTeam.location].count += 1
+    })
+  })
+  return Object.values(locationMap)
+}

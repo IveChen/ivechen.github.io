@@ -2,20 +2,29 @@
   <div class="gutter-v">
     <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考，不能作为最终结论。您可点击上方查看已录入的比赛数据" type="error"></el-alert>
   </div>
-  <el-row class="gutter-v">
-    <el-col :span="6">
-      <el-statistic title="参赛人数" :value="playerList.length" />
-    </el-col>
-    <el-col :span="6">
-      <el-statistic title="总上场英雄" :value="heroList.length" />
-    </el-col>
-    <el-col :span="6">
-      <el-statistic title="比赛次数" :value="matchCount" />
-    </el-col>
-    <el-col :span="6">
-      <el-statistic title="对局次数" :value="gameCount" />
-    </el-col>
-  </el-row>
+  <el-card  class="gutter-v">
+    <el-row>
+      <el-col :span="6">
+        <el-statistic title="参赛人数" :value="playerList.length" />
+      </el-col>
+      <el-col :span="6">
+        <el-statistic title="总上场英雄" :value="heroList.length" />
+      </el-col>
+      <el-col :span="6">
+        <el-statistic title="比赛次数" :value="matchCount" />
+      </el-col>
+      <el-col :span="6">
+        <el-statistic title="对局次数" :value="gameCount" />
+      </el-col>
+    </el-row>
+  </el-card>
+  <el-card  class="gutter-v">
+    <el-row>
+      <el-col :span="12" v-for="(item,index) in locationList" :key="index">
+        <el-statistic :title="item.location" :value="item.winCount" />
+      </el-col>
+    </el-row>
+  </el-card>
   <el-card header="人员数据" class="gutter-v">
     <el-table :data="playerList">
       <el-table-column label="名字" prop="nickName" fixed="left">
@@ -83,7 +92,7 @@ import { computed, reactive, watch } from 'vue'
 // @ts-ignore
 import getMatchList from '@/utils/matchList'
 // @ts-ignore
-import { getPlayerDataFromMatch, getHeroDataFromMatch } from '@/utils/dataHelper'
+import { getPlayerDataFromMatch, getHeroDataFromMatch, getLocationDataFromMatch } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
 
@@ -106,6 +115,9 @@ const heroManagement = getHeroDataFromMatch(matchList)
 const heroList = heroManagement.heroList.sort((a, b) => {
   return a.count < b.count ? 1 : -1
 })
+
+const locationList = getLocationDataFromMatch(matchList)
+console.log(locationList)
 
 const router = useRouter()
 const handelGoPlayerDetail = (nickName) => {

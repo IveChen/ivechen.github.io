@@ -1,4 +1,4 @@
-# ticu
+# 项目命令
 
 ## Project setup
 ```
@@ -15,10 +15,6 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# 名词解释
+比赛 match 表示一次大赛
+对局 game 表示大赛内的一个小场次

@@ -29,26 +29,26 @@
     <el-table :data="playerList">
       <el-table-column label="名字" prop="nickName" fixed="left">
       </el-table-column>
-      <el-table-column label="参赛次数">
+      <el-table-column label="参赛次数" prop="matchCount" sortable>
         <template #default="scope">
           <Percent :number1="scope.row.matchCount" :number2="matchCount"></Percent>
         </template>
       </el-table-column>
-      <el-table-column label="参赛胜场">
+      <el-table-column label="参赛胜场" prop="matchWinCount" sortable>
         <template #default="scope">
           <Percent :number1="scope.row.matchWinCount" :number2="scope.row.matchCount"></Percent>
         </template>
       </el-table-column>
-      <el-table-column label="使用英雄">
+      <el-table-column label="使用英雄" sortable prop="heroList.length">
         <template #default="scope">
           {{scope.row.heroList.length}}
         </template>
       </el-table-column>
-      <el-table-column label="最长连胜" prop="maxMatchWinCount">
+      <el-table-column label="最长连胜" prop="maxMatchWinCount" sortable>
       </el-table-column>
-      <el-table-column label="最长连败" prop="maxMatchLoseCount">
+      <el-table-column label="最长连败" prop="maxMatchLoseCount" sortable>
       </el-table-column>
-      <el-table-column label="当前状态">
+      <el-table-column label="当前状态" sortable prop="matchFormCount">
         <template #default="scope">
           <div v-if="scope.row.matchFormCount > 0" class="color-danger">{{scope.row.matchFormCount}}连胜</div>
           <div v-if="scope.row.matchFormCount === 0">平局</div>

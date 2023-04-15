@@ -21,6 +21,11 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '黑心喵',
+    nickName: '喵'
+  },
+  {
+    fullName: '??',
     name: '大肠',
     nickName: '肠'
   },
@@ -30,24 +35,9 @@ export const PlayerList = [
     nickName: '徐'
   },
   {
-    fullName: '钱赞企',
-    name: 'nostalie',
-    nickName: '钱'
-  },
-  {
-    fullName: '??',
-    name: '黑心喵',
-    nickName: '喵'
-  },
-  {
     fullName: '??',
     name: '貔貅',
     nickName: '王'
-  },
-  {
-    fullName: '??',
-    name: '马',
-    nickName: '仔'
   },
   {
     fullName: '??',
@@ -68,6 +58,21 @@ export const PlayerList = [
     fullName: '??',
     name: 'ams',
     nickName: '娟'
+  },
+  {
+    fullName: '钱赞企',
+    name: 'nostalie',
+    nickName: '钱'
+  },
+  {
+    fullName: '李培楠',
+    name: '牛牛哥哥',
+    nickName: '牛'
+  },
+  {
+    fullName: '??',
+    name: '马',
+    nickName: '仔'
   },
   {
     fullName: '??',
@@ -91,13 +96,13 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: '法人',
-    nickName: '法'
+    name: 'Eddie',
+    nickName: '迪'
   },
   {
-    fullName: '李培楠',
-    name: '牛牛哥哥',
-    nickName: '牛'
+    fullName: '??',
+    name: '法人',
+    nickName: '法'
   }
 ]
 // 选人模式 定员指跟队长一边

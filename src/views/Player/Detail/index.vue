@@ -34,6 +34,7 @@
         </el-descriptions-item>
         <el-descriptions-item label="当前比赛状态">
           <div v-if="player.matchFormCount > 0" class="color-danger">{{player.matchFormCount}}连胜</div>
+          <div v-if="player.matchFormCount === 0">平局</div>
           <div v-if="player.matchFormCount < 0" class="color-success">{{Math.abs(player.matchFormCount)}}连败</div>
         </el-descriptions-item>
         <el-descriptions-item label="对局次数">

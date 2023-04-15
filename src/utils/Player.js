@@ -101,6 +101,11 @@ export class Player {
     }
   }
 
+  /** 平一场比赛 */
+  drawMatch () {
+    this.matchCount += 1
+  }
+
   /** 输一场比赛 */
   loseMatch () {
     this.matchCount += 1
@@ -159,6 +164,18 @@ export class Player {
     }
     this.orderMap[orderName].count += 1
     this.orderMap[orderName].winCount += 1
+  }
+
+  drawOrder (orderName) {
+    if (!this.orderMap[orderName]) {
+      this.orderMap[orderName] = {
+        orderName,
+        winCount: 0,
+        loseCount: 0,
+        count: 0
+      }
+    }
+    this.orderMap[orderName].count += 1
   }
 
   // 在选马位置输一场

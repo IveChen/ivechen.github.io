@@ -27,7 +27,7 @@
       "bpHeroQueue": [],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "孙", "hero": "殁境神蚀者" },
             { "player": "黄", "hero": "斯拉达" },
@@ -37,7 +37,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "驴", "hero": "编织者" },
             { "player": "兔", "hero": "杰奇洛" },
@@ -55,7 +55,7 @@
       "bpHeroQueue": [],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "孙", "hero": "斧王" },
             { "player": "黄", "hero": "冥界亚龙" },
@@ -65,7 +65,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "驴", "hero": "斯拉克" },
             { "player": "兔", "hero": "杰奇洛" },

@@ -52,7 +52,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "牛", "hero": "变体精灵" },
             { "player": "肠", "hero": "潮汐猎人" },
@@ -62,7 +62,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "鹅", "hero": "斯拉克" },
             { "player": "徐", "hero": "狙击手" },
@@ -105,7 +105,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "牛", "hero": "敌法师" },
             { "player": "肠", "hero": "潮汐猎人" },
@@ -115,7 +115,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "鹅", "hero": "狙击手" },
             { "player": "徐", "hero": "虚空假面" },
@@ -158,7 +158,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "牛", "hero": "幻影刺客" },
             { "player": "肠", "hero": "拉比克" },
@@ -168,7 +168,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "鹅", "hero": "灰烬之灵" },
             { "player": "徐", "hero": "幽鬼" },

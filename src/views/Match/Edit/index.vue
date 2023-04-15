@@ -316,7 +316,7 @@ const handleCopyConfig = () => {
 //       teamList: [
 //         {
 //           // 游戏位置
-//           location: '近卫',
+//           location: '天辉',
 //           // 队员使用英雄
 //           heroList: [{
 //             player: '队员1',

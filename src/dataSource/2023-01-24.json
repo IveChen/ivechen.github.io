@@ -52,7 +52,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "孙", "hero": "死亡先知" },
             { "player": "黄", "hero": "冥界亚龙" },
@@ -62,7 +62,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "妖", "hero": "狙击手" },
             { "player": "兔", "hero": "天怒法师" },
@@ -105,7 +105,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "孙", "hero": "光之守卫" },
             { "player": "黄", "hero": "杰奇洛" },
@@ -115,7 +115,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "妖", "hero": "末日使者" },
             { "player": "兔", "hero": "天怒法师" },
@@ -158,7 +158,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "孙", "hero": "光之守卫" },
             { "player": "黄", "hero": "邪影芳灵" },
@@ -168,7 +168,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "妖", "hero": "混沌骑士" },
             { "player": "兔", "hero": "杰奇洛" },

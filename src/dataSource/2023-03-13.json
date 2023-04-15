@@ -52,7 +52,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "鹅", "hero": "瘟疫法师" },
             { "player": "喵", "hero": "小小" },
@@ -62,7 +62,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "牛", "hero": "变体精灵" },
             { "player": "孙", "hero": "帕格纳" },
@@ -105,7 +105,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "鹅", "hero": "主宰" },
             { "player": "喵", "hero": "玛尔斯" },
@@ -115,7 +115,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "牛", "hero": "恐怖利刃" },
             { "player": "孙", "hero": "克林克兹" },

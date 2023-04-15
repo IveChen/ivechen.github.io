@@ -5,9 +5,9 @@
     </el-form-item>
   </el-form>
   <el-table :data="dataSource" border stripe>
+    <el-table-column prop="matchDate" label="比赛时间" fixed="left"></el-table-column>
     <el-table-column prop="matchType" label="比赛类型"></el-table-column>
-    <el-table-column prop="matchDate" label="比赛时间"></el-table-column>
-    <el-table-column label="结果">
+    <el-table-column label="结果" width="400px">
       <template #default="scope">
         <div class="layout-h">
           <div class="layout-h">

@@ -27,7 +27,7 @@
       "bpHeroQueue": [],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "孙", "hero": "克林克兹" },
             { "player": "黄", "hero": "哈斯卡" },
@@ -37,7 +37,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "驴", "hero": "狙击手" },
             { "player": "兔", "hero": "水晶室女" },
@@ -55,7 +55,7 @@
       "bpHeroQueue": [],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "孙", "hero": "光之守卫" },
             { "player": "黄", "hero": "斯拉达" },
@@ -65,7 +65,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "驴", "hero": "斯拉克" },
             { "player": "兔", "hero": "天怒法师" },

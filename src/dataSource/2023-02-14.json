@@ -52,7 +52,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "徐", "hero": "幻影长矛手" },
             { "player": "孙", "hero": "殁境神蚀者" },
@@ -62,7 +62,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "鹅", "hero": "娜迦海妖" },
             { "player": "黄", "hero": "冥界亚龙" },
@@ -105,7 +105,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "徐", "hero": "幽鬼" },
             { "player": "孙", "hero": "克林克兹" },
@@ -115,7 +115,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "鹅", "hero": "狼人" },
             { "player": "黄", "hero": "剧毒术士" },
@@ -158,7 +158,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "徐", "hero": "虚空假面" },
             { "player": "孙", "hero": "昆卡" },
@@ -168,7 +168,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "鹅", "hero": "影魔" },
             { "player": "黄", "hero": "宙斯" },

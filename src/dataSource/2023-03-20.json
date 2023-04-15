@@ -82,7 +82,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             {
               "player": "黄",
@@ -107,7 +107,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             {
               "player": "孙",
@@ -165,7 +165,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             {
               "player": "黄",
@@ -190,7 +190,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             {
               "player": "孙",
@@ -248,7 +248,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             {
               "player": "黄",
@@ -273,7 +273,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             {
               "player": "孙",

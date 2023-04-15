@@ -52,7 +52,7 @@
       ],
       "teamList": [
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "灿", "hero": "司夜刺客" },
             { "player": "驴", "hero": "熊战士" },
@@ -62,7 +62,7 @@
           ]
         },
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "孙", "hero": "光之守卫" },
             { "player": "黄", "hero": "斧王" },
@@ -105,7 +105,7 @@
       ],
       "teamList": [
         {
-          "location": "近卫",
+          "location": "天辉",
           "heroList": [
             { "player": "灿", "hero": "司夜刺客" },
             { "player": "驴", "hero": "卓尔游侠" },
@@ -115,7 +115,7 @@
           ]
         },
         {
-          "location": "天灾",
+          "location": "夜魇",
           "heroList": [
             { "player": "孙", "hero": "光之守卫" },
             { "player": "黄", "hero": "炼金术士" },

@@ -136,8 +136,8 @@ export const GameTypeList = [
 ]
 // 地图位置
 export const TeamLocationList = [
-  '近卫',
-  '天灾'
+  '天辉',
+  '夜魇'
 ]
 
 export enum TeamIndex {

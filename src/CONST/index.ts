@@ -103,8 +103,22 @@ export const PlayerList = [
     fullName: '??',
     name: '法人',
     nickName: '法'
+  },
+  {
+    fullName: '??',
+    name: '惑小莎',
+    nickName: '惑'
+  },
+  {
+    fullName: '??',
+    name: '超管',
+    nickName: '超',
+    infinite: true
   }
 ]
+
+export const IgnoreAnalysisPlayerList = ['超', '惑']
+
 // 选人模式 定员指跟队长一边
 export const BPPlayerModeList = [
   '全部选马',
@@ -115,6 +129,19 @@ export const BPPlayerModeList = [
 export const PlayerOrderList = [
   '队长1',
   '队长2',
+  '一选',
+  '二选',
+  '三选',
+  '四选',
+  '五选',
+  '六选',
+  '七选',
+  '八选',
+  '固定'
+]
+
+export const PlayerOrderListForAnalysis = [
+  '队长',
   '一选',
   '二选',
   '三选',

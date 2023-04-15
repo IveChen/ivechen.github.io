@@ -24,6 +24,9 @@
             <el-option v-for="(item,index) in BPPlayerModeList" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item label="备注">
+          <el-input v-model="state.form.matchRemark" placeholder="请填写比赛备注"></el-input>
+        </el-form-item>
       </el-form>
     </el-card>
     <!-- 队伍人员设置 -->
@@ -142,18 +145,18 @@ const getDefaultTeamList = () => {
 const getDefaultForm = () => {
   return {
     matchDate: null,
+    matchRemark: '',
     matchType: MatchTypeList[0],
     matchMemberBPMode: BPPlayerModeList[0],
     matchMode: MatchModeList[0],
     matchTeamList: getDefaultTeamList(),
-    gameList: [],
-    showCode: false
+    gameList: []
   }
 }
 
 const finalPlayerList = computed(() => {
   return PlayerList.filter((item) => {
-    return !state.form.matchTeamList.flat().find((titem) => {
+    return item.infinite || !state.form.matchTeamList.flat().find((titem) => {
       return titem.player === item.nickName
     })
   })
@@ -169,7 +172,8 @@ const finalPlayerOrderList = computed(() => {
 
 const state = reactive({
   form: getDefaultForm(),
-  isLock: false
+  isLock: false,
+  showCode: false
 })
 
 const route = useRoute()

@@ -111,7 +111,7 @@ import { useRoute, useRouter } from 'vue-router'
 // @ts-ignore
 import getMatchList from '@/utils/matchList'
 // @ts-ignore
-import { getPlayerDataFromMatch } from '@/utils/dataHelper'
+import { parseMatchList } from '@/utils/dataHelper'
 import Player from '@/components/Player/index.vue'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
@@ -125,7 +125,7 @@ const matchList = getMatchList()
 // 比赛场次
 const matchCount = matchList.length
 
-const playerManagement = getPlayerDataFromMatch(matchList)
+const { playerManagement } = parseMatchList(matchList)
 const player = playerManagement.getPlayer(nickName)
 const heroList = player.heroList.sort((a, b) => {
   return a.count < b.count ? 1 : -1

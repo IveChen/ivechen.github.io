@@ -93,7 +93,7 @@ import { computed, reactive, watch } from 'vue'
 // @ts-ignore
 import getMatchList from '@/utils/matchList'
 // @ts-ignore
-import { getPlayerDataFromMatch, getHeroDataFromMatch, getLocationDataFromMatch } from '@/utils/dataHelper'
+import { parseMatchList } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
 import dayjs from 'dayjs'
@@ -106,7 +106,7 @@ const gameCount = matchList.reduce((result, item) => {
   return result + item.gameList.length
 }, 0)
 
-const playerManagement = getPlayerDataFromMatch(matchList)
+const { playerManagement, heroManagement, locationMap } = parseMatchList(matchList)
 
 const playerList = playerManagement.playerList.sort((a, b) => {
   if (a.lastMatchDate === b.lastMatchDate) {
@@ -116,13 +116,11 @@ const playerList = playerManagement.playerList.sort((a, b) => {
   }
 })
 
-const heroManagement = getHeroDataFromMatch(matchList)
-
 const heroList = heroManagement.heroList.sort((a, b) => {
   return a.count < b.count ? 1 : -1
 })
 
-const locationList = getLocationDataFromMatch(matchList)
+const locationList = Object.values(locationMap)
 
 const router = useRouter()
 const handelGoPlayerDetail = (nickName) => {

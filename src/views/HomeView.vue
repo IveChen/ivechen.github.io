@@ -1,7 +1,7 @@
 <template>
   <div class="gutter-v">
     <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考(尤其是历史连胜连败数据)，不能作为最终结论。您可点击上方查看已录入的比赛数据" type="error"></el-alert>
-    <el-alert title="合作/对抗数据将排除超管以及惑小莎等外部人员，因此在极端情况下可能会存在对局次数与合作对抗数据对不上的问题。" type="error"></el-alert>
+    <el-alert title="~~目前数据更新至2022年11月~~预计明天更新完。" type="error"></el-alert>
   </div>
   <el-card  class="gutter-v">
     <el-row>

@@ -134,7 +134,11 @@ const getTeamList = (list, size) => {
   return list.filter((item) => {
     return item.playerList.length === size
   }).sort((a, b) => {
-    return a.count < b.count ? 1 : -1
+    if (a.count === b.count) {
+      return a.winCount < b.winCount ? 1 : -1
+    } else {
+      return a.count < b.count ? 1 : -1
+    }
   })
 }
 const sameTeamMatchList = [

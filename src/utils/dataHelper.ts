@@ -19,7 +19,7 @@ export const getPlayerDataFromMatch = (matchList) => {
       match.matchTeamList.forEach((team) => {
         team.forEach((item) => {
           const player = playerManagement.getPlayer(item.player)
-          player.setLastMatchDate(match.matchDate)
+          player.setMatchDate(match.matchDate)
           player.drawMatch()
           player.drawOrder(item.order)
         })
@@ -34,7 +34,7 @@ export const getPlayerDataFromMatch = (matchList) => {
       winMatchTeam.forEach((item) => {
         const player = playerManagement.getPlayer(item.player)
         player.winMatch()
-        player.setLastMatchDate(match.matchDate)
+        player.setMatchDate(match.matchDate)
         player.winOrder(item.order)
         const teammate = getTeammate(winTeamPlayerList, item.player)
         for (let i = 1; i <= 4; i++) {
@@ -50,7 +50,7 @@ export const getPlayerDataFromMatch = (matchList) => {
       })
       loseMatchTeam.forEach((item) => {
         const player = playerManagement.getPlayer(item.player)
-        player.setLastMatchDate(match.matchDate)
+        player.setMatchDate(match.matchDate)
         player.loseMatch()
         player.loseOrder(item.order)
         const teammate = getTeammate(loseTeamPlayerList, item.player)
@@ -146,7 +146,7 @@ export const parseMatchList = (matchList) => {
         team.forEach((item) => {
           if (IgnoreAnalysisPlayerList.indexOf(item.player) > -1) return
           const player = playerManagement.getPlayer(item.player)
-          player.setLastMatchDate(match.matchDate)
+          player.setMatchDate(match.matchDate)
           player.drawMatch()
           player.drawOrder(item.order)
         })
@@ -166,7 +166,7 @@ export const parseMatchList = (matchList) => {
         if (IgnoreAnalysisPlayerList.indexOf(item.player) > -1) return
         const player = playerManagement.getPlayer(item.player)
         player.winMatch()
-        player.setLastMatchDate(match.matchDate)
+        player.setMatchDate(match.matchDate)
         player.winOrder(item.order)
         const teammate = getTeammate(winTeamPlayerList, item.player)
         for (let i = 1; i <= 4; i++) {
@@ -183,7 +183,7 @@ export const parseMatchList = (matchList) => {
       loseMatchTeam.forEach((item) => {
         if (IgnoreAnalysisPlayerList.indexOf(item.player) > -1) return
         const player = playerManagement.getPlayer(item.player)
-        player.setLastMatchDate(match.matchDate)
+        player.setMatchDate(match.matchDate)
         player.loseMatch()
         player.loseOrder(item.order)
         const teammate = getTeammate(loseTeamPlayerList, item.player)

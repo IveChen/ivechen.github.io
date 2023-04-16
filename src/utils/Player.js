@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import { PlayerList } from '@/CONST'
 
 export class Player {
+  firstMatchDate = null
   lastMatchDate = null
   matchCount = 0 // 参与比赛赛场次
   matchWinCount = 0 // 参与比赛赛胜利场次
@@ -76,12 +77,17 @@ export class Player {
     return notCaptainList
   }
 
-  setLastMatchDate (matchDate) {
+  setMatchDate (matchDate) {
     if (!matchDate) return
     if (!this.lastMatchDate) {
       this.lastMatchDate = matchDate
     } else if (dayjs(this.lastMatchDate) < dayjs(matchDate)) {
       this.lastMatchDate = matchDate
+    }
+    if (!this.firstMatchDate) {
+      this.firstMatchDate = matchDate
+    } else if (dayjs(this.firstMatchDate) > dayjs(matchDate)) {
+      this.firstMatchDate = matchDate
     }
   }
 

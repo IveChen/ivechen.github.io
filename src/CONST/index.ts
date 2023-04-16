@@ -4,20 +4,18 @@ export const PlayerList = [
   {
     fullName: '孙一峰',
     name: '孙哥',
-    nickName: '孙',
-    desc: '我是DP!'
+    nickName: '孙'
   },
   {
     fullName: '黄旭东',
     name: '黄哥',
-    nickName: '黄',
-    desc: '难道我是小丑?'
+    nickName: '黄'
   },
   {
     fullName: '胡翔',
     name: 'Sed',
     nickName: '鹅',
-    desc: '赢!啦!全!靠!我!无敌!!!'
+    desc: '全靠我!!!无敌!!!'
   },
   {
     fullName: '??',

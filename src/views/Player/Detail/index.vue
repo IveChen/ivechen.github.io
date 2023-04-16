@@ -1,111 +1,114 @@
 <template>
-  <GlobalMatchListFilter @submit="handleSubmit"></GlobalMatchListFilter>
-  <div class="gutter-v page-header">
-    <el-page-header @back="handleBack">
-      <template #content>
-        <Player :name="nickName" field="name"></Player>
-      </template>
-    </el-page-header>
-  </div>
-  <template v-if="player">
-    <el-card header="基础数据" class="gutter-v">
-      <el-descriptions column="4">
-        <el-descriptions-item label="自述">
-          <div class="color-info">
-            {{player.info.desc || '--'}}
-          </div>
-        </el-descriptions-item>
-        <el-descriptions-item label="参赛率">
-          <Percent :number1="player.matchCount" :number2="matchCount"></Percent>
-        </el-descriptions-item>
-        <el-descriptions-item label="使用英雄个数">
-          <div>{{player.heroList.length}}</div>
-        </el-descriptions-item>
-        <el-descriptions-item label="最后参赛时间" span="1">
-          <div>{{player.lastMatchDate}}</div>
-        </el-descriptions-item>
-        <el-descriptions-item label="比赛次数">
-          <Percent :number1="player.matchWinCount" :number2="player.matchCount"></Percent>
-        </el-descriptions-item>
-        <el-descriptions-item label="比赛最长连胜">
-          <div class="color-danger">{{player.maxMatchWinCount}}</div>
-        </el-descriptions-item>
-        <el-descriptions-item label="比赛最长连败">
-          <div class="color-success">{{player.maxMatchLoseCount}}</div>
-        </el-descriptions-item>
-        <el-descriptions-item label="当前比赛状态">
-          <div v-if="player.matchFormCount > 0" class="color-danger">{{player.matchFormCount}}连胜</div>
-          <div v-if="player.matchFormCount === 0">平局</div>
-          <div v-if="player.matchFormCount < 0" class="color-success">{{Math.abs(player.matchFormCount)}}连败</div>
-        </el-descriptions-item>
-        <el-descriptions-item label="对局次数">
-          <Percent :number1="player.gameWinCount" :number2="player.gameCount"></Percent>
-        </el-descriptions-item>
-        <el-descriptions-item label="对局最长连胜">
-          <div class="color-danger">{{player.maxGameWinCount}}</div>
-        </el-descriptions-item>
-        <el-descriptions-item label="对局最长连败">
-          <div class="color-success">{{player.maxGameLoseCount}}</div>
-        </el-descriptions-item>
-        <el-descriptions-item label="当前对局状态">
-          <div v-if="player.gameFormCount > 0" class="color-danger">{{player.gameFormCount}}连胜</div>
-          <div v-if="player.gameFormCount < 0" class="color-success">{{Math.abs(player.gameFormCount)}}连败</div>
-        </el-descriptions-item>
-      </el-descriptions>
-    </el-card>
-    <el-card header="位置对局数据" class="gutter-v">
-      <el-descriptions :column="2">
-        <el-descriptions-item :label="item.location" v-for="(item,index) in player.locationList" :key="index">
-
-          <Percent :number1="item.winCount" :number2="item.count"></Percent>
-        </el-descriptions-item>
-      </el-descriptions>
-    </el-card>
-    <el-card :header="`英雄对局数据(共${heroList.length}个英雄)`" class="gutter-v">
-      <el-descriptions>
-        <el-descriptions-item :label="item.hero" v-for="(item,index) in heroList" :key="index">
-          <template #label>
-            <Hero :name="item.hero"></Hero>
+  <div class="layout-full layout-v">
+    <GlobalMatchListFilter @submit="handleSubmit"></GlobalMatchListFilter>
+    <div class="layout-fill container">
+      <div class="gutter-v page-header">
+        <el-page-header @back="handleBack">
+          <template #content>
+            <Player :name="nickName" class="gutter-h" field="name"></Player>
+            <span class="color-info" v-if="player?.info?.desc">({{player?.info?.desc}})</span>
           </template>
-          <Percent :number1="item.winCount" :number2="item.count"></Percent>
-        </el-descriptions-item>
-      </el-descriptions>
-    </el-card>
-    <el-card header="选马比赛数据" class="gutter-v">
-      <el-descriptions>
-        <el-descriptions-item :label="item.orderName" v-for="(item,index) in orderList" :key="index">
-          <Percent :number1="item.winCount" :number2="item.count"></Percent>
-        </el-descriptions-item>
-      </el-descriptions>
-    </el-card>
-    <el-card header="最佳队友" class="gutter-v" >
-      <el-card :header="item.header" class="gutter-v" v-for="(item,index) in sameTeamMatchList" :key="index">
-        <el-descriptions>
-          <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
-            <template #label>
-              {{item.playerList.join('')}}
-            </template>
-            <Percent :number1="item.winCount" :number2="item.count"></Percent>
-          </el-descriptions-item>
-        </el-descriptions>
-      </el-card>
-    </el-card>
-    <el-card :header="`最惨对手(${nickName}赢的次数/作为对手的次数)`">
-      <el-card :header="item.header" class="gutter-v" v-for="(item,index) in diffTeamMatchList" :key="index">
-        <el-descriptions>
-          <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
-            <template #label>
-              {{item.playerList.join('')}}
-            </template>
-            <Percent :number1="item.winCount" :number2="item.count"></Percent>
-          </el-descriptions-item>
-        </el-descriptions>
-      </el-card>
-    </el-card>
-  </template>
-  <template v-else>
-    <el-empty description="没有该人员的数据" />
-  </template>
+        </el-page-header>
+      </div>
+      <template v-if="player">
+        <el-card header="基础数据" class="gutter-v">
+          <el-descriptions column="4">
+            <el-descriptions-item label="参赛率">
+              <Percent :number1="player.matchCount" :number2="matchCount"></Percent>
+            </el-descriptions-item>
+            <el-descriptions-item label="使用英雄个数">
+              <div>{{player.heroList.length}}</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="第一场比赛时间">
+              <div>{{player.firstMatchDate}}</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="最后比赛时间" span="1">
+              <div>{{player.lastMatchDate}}</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="比赛次数">
+              <Percent :number1="player.matchWinCount" :number2="player.matchCount"></Percent>
+            </el-descriptions-item>
+            <el-descriptions-item label="比赛最长连胜">
+              <div class="color-danger">{{player.maxMatchWinCount}}</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="比赛最长连败">
+              <div class="color-success">{{player.maxMatchLoseCount}}</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="当前比赛状态">
+              <div v-if="player.matchFormCount > 0" class="color-danger">{{player.matchFormCount}}连胜</div>
+              <div v-if="player.matchFormCount === 0">平局</div>
+              <div v-if="player.matchFormCount < 0" class="color-success">{{Math.abs(player.matchFormCount)}}连败</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="对局次数">
+              <Percent :number1="player.gameWinCount" :number2="player.gameCount"></Percent>
+            </el-descriptions-item>
+            <el-descriptions-item label="对局最长连胜">
+              <div class="color-danger">{{player.maxGameWinCount}}</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="对局最长连败">
+              <div class="color-success">{{player.maxGameLoseCount}}</div>
+            </el-descriptions-item>
+            <el-descriptions-item label="当前对局状态">
+              <div v-if="player.gameFormCount > 0" class="color-danger">{{player.gameFormCount}}连胜</div>
+              <div v-if="player.gameFormCount < 0" class="color-success">{{Math.abs(player.gameFormCount)}}连败</div>
+            </el-descriptions-item>
+          </el-descriptions>
+        </el-card>
+        <el-card header="位置对局数据" class="gutter-v">
+          <el-descriptions :column="2">
+            <el-descriptions-item :label="item.location" v-for="(item,index) in player.locationList" :key="index">
+
+              <Percent :number1="item.winCount" :number2="item.count"></Percent>
+            </el-descriptions-item>
+          </el-descriptions>
+        </el-card>
+        <el-card :header="`英雄对局数据(共${heroList.length}个英雄)`" class="gutter-v">
+          <el-descriptions>
+            <el-descriptions-item :label="item.hero" v-for="(item,index) in heroList" :key="index">
+              <template #label>
+                <Hero :name="item.hero"></Hero>
+              </template>
+              <Percent :number1="item.winCount" :number2="item.count"></Percent>
+            </el-descriptions-item>
+          </el-descriptions>
+        </el-card>
+        <el-card header="选马比赛数据" class="gutter-v">
+          <el-descriptions>
+            <el-descriptions-item :label="item.orderName" v-for="(item,index) in orderList" :key="index">
+              <Percent :number1="item.winCount" :number2="item.count"></Percent>
+            </el-descriptions-item>
+          </el-descriptions>
+        </el-card>
+        <el-card header="最佳队友" class="gutter-v" >
+          <el-card :header="item.header" class="gutter-v" v-for="(item,index) in sameTeamMatchList" :key="index">
+            <el-descriptions>
+              <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
+                <template #label>
+                  {{item.playerList.join('')}}
+                </template>
+                <Percent :number1="item.winCount" :number2="item.count"></Percent>
+              </el-descriptions-item>
+            </el-descriptions>
+          </el-card>
+        </el-card>
+        <el-card :header="`最惨对手(${nickName}赢的次数/作为对手的次数)`">
+          <el-card :header="item.header" class="gutter-v" v-for="(item,index) in diffTeamMatchList" :key="index">
+            <el-descriptions>
+              <el-descriptions-item  v-for="(item,index) in item.list" :key="index">
+                <template #label>
+                  {{item.playerList.join('')}}
+                </template>
+                <Percent :number1="item.winCount" :number2="item.count"></Percent>
+              </el-descriptions-item>
+            </el-descriptions>
+          </el-card>
+        </el-card>
+      </template>
+      <template v-else>
+        <el-empty description="没有该人员的数据" />
+      </template>
+    </div>
+  </div>
 </template>
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
@@ -227,3 +230,8 @@ const handleBack = () => {
   router.go(-1)
 }
 </script>
+<style lang="less" scoped>
+.container {
+  overflow: auto;
+}
+</style>

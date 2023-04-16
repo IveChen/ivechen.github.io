@@ -1,35 +1,40 @@
 <template>
-  <el-container class="container">
-    <el-header>
-      <div class="layout-h layout-align-center">
-        <div class="title layout-h gutter-h">TICU-数据库</div>
-        <div class="layout-fill">
-          <el-menu mode="horizontal" :ellipsis="false">
-            <el-menu-item>
-              <router-link to="/" active-class="active">首页</router-link>
-            </el-menu-item>
-            <!-- <el-menu-item>
-              <router-link to="/player" active-class="active">个人维度</router-link>
-            </el-menu-item>
-            <el-menu-item >
-              <router-link to="/hero" active-class="active">英雄维度</router-link></el-menu-item> -->
-            <el-menu-item >
-              <router-link to="/matchList" active-class="active">比赛数据</router-link></el-menu-item>
-          </el-menu>
+  <el-config-provider :locale="zhCn">
+    <el-container class="container layout-full layout-v">
+      <el-header>
+        <div class="layout-h layout-align-center">
+          <div class="title layout-h gutter-h">TICU-数据库</div>
+          <div class="layout-fill">
+            <el-menu mode="horizontal" :ellipsis="false">
+              <el-menu-item>
+                <router-link to="/" active-class="active">首页</router-link>
+              </el-menu-item>
+              <!-- <el-menu-item>
+                <router-link to="/player" active-class="active">个人维度</router-link>
+              </el-menu-item>
+              <el-menu-item >
+                <router-link to="/hero" active-class="active">英雄维度</router-link></el-menu-item> -->
+              <el-menu-item >
+                <router-link to="/matchList" active-class="active">比赛数据</router-link></el-menu-item>
+            </el-menu>
+          </div>
         </div>
-      </div>
-    </el-header>
-    <el-main class="layout-padding">
-      <router-view/>
-    </el-main>
-  </el-container>
+      </el-header>
+      <el-main class="layout-padding layout-fill">
+        <router-view/>
+      </el-main>
+    </el-container>
+  </el-config-provider>
 </template>
+<script lang="ts" setup>
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+</script>
 
 <style lang="less">
 #app {
+  height: 100%;
   color: #2c3e50;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

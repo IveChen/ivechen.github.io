@@ -7,6 +7,7 @@
   <el-table :data="dataSource" border stripe>
     <el-table-column prop="matchDate" label="比赛时间" fixed="left"></el-table-column>
     <el-table-column prop="matchType" label="比赛类型"></el-table-column>
+    <el-table-column prop="matchMode" label="比赛模式"></el-table-column>
     <el-table-column label="结果" width="400px">
       <template #default="scope">
         <div class="layout-h">

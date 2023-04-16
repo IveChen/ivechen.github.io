@@ -93,7 +93,7 @@
       <div class="layout-h">
         <el-card v-for="(item,tindex) in game.teamList" :key="tindex" :header="formatTeamName(tindex)" class="layout-fill" :class="{'gutter-h':tindex === 0}">
           <el-form-item label="位置">
-            <el-select :placeholder="`选择位置`" v-model="item.location">
+            <el-select :placeholder="`选择位置`" v-model="item.location" @change="handleLocationChange(game.teamList,tindex)">
               <el-option v-for="(item,index) in TeamLocationList" :key="index" :label="item" :value="item">
               </el-option>
             </el-select>
@@ -131,6 +131,7 @@ import HeroList from '@/CONST/hero'
 import getMatchList from '@/utils/matchList'
 import { useRoute } from 'vue-router'
 import FileSaver from 'file-saver'
+import { getOpponentTeamIndex } from '@/utils/index'
 
 const getDefaultTeamList = () => {
   return Array.from({ length: 2 }, () => {
@@ -208,6 +209,17 @@ const handleConfirmMember = () => {
     ElMessage.error('请选择队伍人员和顺序')
   } else {
     state.isLock = true
+  }
+}
+
+const handleLocationChange = (teamList, tIndex) => {
+  const opponentTeamIndex = getOpponentTeamIndex(tIndex)
+  if (teamList[tIndex].location === '天辉') {
+    // eslint-disable-next-line
+    teamList[opponentTeamIndex].location = '夜魇'
+  } else {
+    // eslint-disable-next-line
+    teamList[opponentTeamIndex].location = '天辉'
   }
 }
 

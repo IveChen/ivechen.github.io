@@ -31,7 +31,7 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: '浩楠',
+    name: '徐浩楠',
     nickName: '徐'
   },
   {

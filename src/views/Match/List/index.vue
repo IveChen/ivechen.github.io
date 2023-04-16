@@ -1,11 +1,31 @@
 <template>
-  <el-form>
+  <el-form inline>
+    <el-form-item label="人员">
+      <el-select placeholder="包含该人员" v-model="state.form.player" clearable filterable>
+        <el-option v-for="(item,index) in PlayerList" :key="index" :label="`${item.nickName}(${item.name})`" :value="item.nickName">
+          {{item.nickName}}({{item.name}})
+        </el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item label="英雄">
+      <el-select placeholder="包含该英雄" v-model="state.form.hero" clearable filterable>
+        <el-option v-for="(item,index) in HeroList" :key="index" :label="item.name_loc" :value="item.name_loc">
+        </el-option>
+      </el-select>
+    </el-form-item>
+    <el-form-item label="比赛类型">
+      <el-select placeholder="选择比赛类型" v-model="state.form.matchType" clearable>
+        <el-option v-for="(item,index) in MatchTypeList" :key="index" :label="item" :value="item">
+        </el-option>
+      </el-select>
+    </el-form-item>
     <el-form-item>
-      <el-button @click="handleAdd">配置比赛</el-button>
+      <el-button @click="handleAdd" type="danger">配置比赛</el-button>
     </el-form-item>
   </el-form>
   <el-table :data="dataSource" border stripe>
-    <el-table-column prop="matchDate" label="比赛时间" fixed="left"></el-table-column>
+    <el-table-column type="index" width="50" />
+    <el-table-column prop="matchDate" label="比赛时间"></el-table-column>
     <el-table-column prop="matchType" label="比赛类型"></el-table-column>
     <el-table-column prop="matchMode" label="比赛模式"></el-table-column>
     <el-table-column label="结果" width="400px">
@@ -35,20 +55,58 @@
 <script lang="ts" setup>
 import { computed, reactive, watch } from 'vue'
 import getMatchList from '@/utils/matchList'
-import { TeamIndex } from '@/CONST'
+import { TeamIndex, MatchTypeList, PlayerList } from '@/CONST'
+import HeroList from '@/CONST/hero'
 import Player from '@/components/Player/index.vue'
 import { useRouter } from 'vue-router'
 
-const dataSource = computed(() => getMatchList().reverse().map((item) => {
-  const playOffScoreList = item.playOffScoreList.join(':')
-  return {
-    ...item,
-    team1: item.matchTeamList[TeamIndex.Team1],
-    team2: item.matchTeamList[TeamIndex.Team2],
-    scoreList: item.scoreList.join(':'),
-    playOffScoreList: playOffScoreList === '0:0' ? null : playOffScoreList
+const state = reactive({
+  form: {
+    player: '',
+    hero: '',
+    matchType: ''
   }
-}))
+})
+
+const dataSource = computed(() => {
+  return getMatchList().reverse().filter((item) => {
+    if (state.form.player) {
+      const isValid = item.matchTeamList.flat().find((item) => {
+        return item.player === state.form.player
+      })
+      if (!isValid) {
+        return false
+      }
+    }
+    if (state.form.hero) {
+      const isValid = item.gameList.some((game) => {
+        return game.teamList.some((team) => {
+          return team.heroList.find((item) => {
+            return item.hero === state.form.hero
+          })
+        })
+      })
+      if (!isValid) {
+        return false
+      }
+    }
+    if (state.form.matchType) {
+      if (item.matchType !== state.form.matchType) {
+        return false
+      }
+    }
+    return true
+  }).map((item) => {
+    const playOffScoreList = item.playOffScoreList.join(':')
+    return {
+      ...item,
+      team1: item.matchTeamList[TeamIndex.Team1],
+      team2: item.matchTeamList[TeamIndex.Team2],
+      scoreList: item.scoreList.join(':'),
+      playOffScoreList: playOffScoreList === '0:0' ? null : playOffScoreList
+    }
+  })
+})
 
 const router = useRouter()
 

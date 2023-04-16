@@ -72,7 +72,7 @@
     </el-card>
     <el-card header="选马比赛数据" class="gutter-v">
       <el-descriptions>
-        <el-descriptions-item :label="item.orderName" v-for="(item,index) in player.orderList" :key="index">
+        <el-descriptions-item :label="item.orderName" v-for="(item,index) in orderList" :key="index">
           <Percent :number1="item.winCount" :number2="item.count"></Percent>
         </el-descriptions-item>
       </el-descriptions>
@@ -127,8 +127,19 @@ const matchCount = matchList.length
 
 const { playerManagement } = parseMatchList(matchList)
 const player = playerManagement.getPlayer(nickName)
+const orderList = player.orderList.sort((a, b) => {
+  if (a.count === b.count) {
+    return a.winCount < b.winCount ? 1 : -1
+  } else {
+    return a.count < b.count ? 1 : -1
+  }
+})
 const heroList = player.heroList.sort((a, b) => {
-  return a.count < b.count ? 1 : -1
+  if (a.count === b.count) {
+    return a.winCount < b.winCount ? 1 : -1
+  } else {
+    return a.count < b.count ? 1 : -1
+  }
 })
 const getTeamList = (list, size) => {
   return list.filter((item) => {

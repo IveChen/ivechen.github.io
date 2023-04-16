@@ -2,7 +2,7 @@
   <div class="layout-v layout-full">
     <el-form inline>
       <el-form-item>
-        <el-date-picker :disabled-date="disabledDate" type="daterange" v-model="state.form.date" clearable></el-date-picker>
+        <el-date-picker :disabled-date="disabledDate" :shortcuts="shortcuts" start-placeholder="开始时间" end-placeholder="结束时间" type="daterange" v-model="state.form.date" clearable></el-date-picker>
       </el-form-item>
       <el-form-item>
         <el-select placeholder="包含该人员" v-model="state.form.player" clearable filterable>
@@ -13,7 +13,8 @@
       </el-form-item>
       <el-form-item>
         <el-select placeholder="包含该英雄" v-model="state.form.hero" clearable filterable>
-          <el-option v-for="(item,index) in HeroList" :key="index" :label="item.name_loc" :value="item.name_loc">
+          <el-option v-for="(item,index) in HeroList" :key="index" :label="`${item.name_loc}(${item.name_english_loc})`" :value="item.name_loc">
+            {{item.name_loc}}({{item.name_english_loc}})
           </el-option>
         </el-select>
       </el-form-item>
@@ -75,6 +76,16 @@ const state = reactive({
   }
 })
 
+const shortcuts = [
+  {
+    text: '今年',
+    value: () => {
+      const end = new Date()
+      const start = new Date(new Date().getFullYear(), 0)
+      return [start, end]
+    }
+  }
+]
 const disabledDate = (v) => {
   return dayjs(v) > dayjs()
 }

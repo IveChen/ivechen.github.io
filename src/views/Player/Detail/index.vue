@@ -1,4 +1,5 @@
 <template>
+  <GlobalMatchListFilter @submit="handleSubmit"></GlobalMatchListFilter>
   <div class="gutter-v page-header">
     <el-page-header @back="handleBack">
       <template #content>
@@ -115,32 +116,56 @@ import { parseMatchList } from '@/utils/dataHelper'
 import Player from '@/components/Player/index.vue'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
+import GlobalMatchListFilter from '@/components/GobalMatchListFilter/index.vue'
+import { computed, reactive } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
 
 const { nickName } = route.query
 
-const matchList = getMatchList()
-// 比赛场次
-const matchCount = matchList.length
+const state = reactive({
+  matchList: []
+})
 
-const { playerManagement } = parseMatchList(matchList)
-const player = playerManagement.getPlayer(nickName)
-const orderList = player.orderList.sort((a, b) => {
-  if (a.count === b.count) {
-    return a.winCount < b.winCount ? 1 : -1
-  } else {
-    return a.count < b.count ? 1 : -1
-  }
+const handleSubmit = (matchList) => {
+  state.matchList = matchList
+}
+
+// 比赛场次
+const matchCount = computed(() => {
+  return state.matchList.length
 })
-const heroList = player.heroList.sort((a, b) => {
-  if (a.count === b.count) {
-    return a.winCount < b.winCount ? 1 : -1
-  } else {
-    return a.count < b.count ? 1 : -1
-  }
+
+const parsedData = computed(() => {
+  return parseMatchList(state.matchList)
 })
+
+const player = computed(() => {
+  const { playerManagement } = parsedData.value
+  return playerManagement.getPlayer(nickName)
+})
+const orderList = computed(() => {
+  const list = player.value.orderList
+  return list.sort((a, b) => {
+    if (a.count === b.count) {
+      return a.winCount < b.winCount ? 1 : -1
+    } else {
+      return a.count < b.count ? 1 : -1
+    }
+  })
+})
+const heroList = computed(() => {
+  const list = player.value.heroList
+  return list.sort((a, b) => {
+    if (a.count === b.count) {
+      return a.winCount < b.winCount ? 1 : -1
+    } else {
+      return a.count < b.count ? 1 : -1
+    }
+  })
+})
+
 const getTeamList = (list, size) => {
   return list.filter((item) => {
     return item.playerList.length === size
@@ -152,47 +177,51 @@ const getTeamList = (list, size) => {
     }
   })
 }
-const sameTeamMatchList = [
-  {
-    header: '队友1',
-    list: getTeamList(player.sameTeamMatchList, 1)
-  },
-  {
-    header: '队友2',
-    list: getTeamList(player.sameTeamMatchList, 2)
-  },
-  {
-    header: '队友3',
-    list: getTeamList(player.sameTeamMatchList, 3)
-  },
-  {
-    header: '队友4',
-    list: getTeamList(player.sameTeamMatchList, 4)
-  }
-]
+const sameTeamMatchList = computed(() => {
+  return [
+    {
+      header: '队友1',
+      list: getTeamList(player.value.sameTeamMatchList, 1)
+    },
+    {
+      header: '队友2',
+      list: getTeamList(player.value.sameTeamMatchList, 2)
+    },
+    {
+      header: '队友3',
+      list: getTeamList(player.value.sameTeamMatchList, 3)
+    },
+    {
+      header: '队友4',
+      list: getTeamList(player.value.sameTeamMatchList, 4)
+    }
+  ]
+})
 
-const diffTeamMatchList = [
-  {
-    header: '对手1',
-    list: getTeamList(player.diffTeamMatchList, 1)
-  },
-  {
-    header: '对手2',
-    list: getTeamList(player.diffTeamMatchList, 2)
-  },
-  {
-    header: '对手3',
-    list: getTeamList(player.diffTeamMatchList, 3)
-  },
-  {
-    header: '对手4',
-    list: getTeamList(player.diffTeamMatchList, 4)
-  },
-  {
-    header: '对手5',
-    list: getTeamList(player.diffTeamMatchList, 5)
-  }
-]
+const diffTeamMatchList = computed(() => {
+  return [
+    {
+      header: '对手1',
+      list: getTeamList(player.value.diffTeamMatchList, 1)
+    },
+    {
+      header: '对手2',
+      list: getTeamList(player.value.diffTeamMatchList, 2)
+    },
+    {
+      header: '对手3',
+      list: getTeamList(player.value.diffTeamMatchList, 3)
+    },
+    {
+      header: '对手4',
+      list: getTeamList(player.value.diffTeamMatchList, 4)
+    },
+    {
+      header: '对手5',
+      list: getTeamList(player.value.diffTeamMatchList, 5)
+    }
+  ]
+})
 
 const handleBack = () => {
   router.go(-1)

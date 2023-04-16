@@ -1,4 +1,5 @@
 <template>
+  <GlobalMatchListFilter @submit="handleSubmit"></GlobalMatchListFilter>
   <div class="gutter-v">
     <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考(尤其是历史连胜连败数据)，不能作为最终结论。您可点击上方查看已录入的比赛数据" type="error"></el-alert>
     <el-alert title="~~目前数据已更新完毕。" type="error"></el-alert>
@@ -97,31 +98,53 @@ import getMatchList from '@/utils/matchList'
 import { parseMatchList } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
+import GlobalMatchListFilter from '@/components/GobalMatchListFilter/index.vue'
 import dayjs from 'dayjs'
+
+const state = reactive({
+  matchList: []
+})
 
 const matchList = getMatchList()
 // 比赛场次
-const matchCount = matchList.length
+const matchCount = computed(() => {
+  return state.matchList.length
+})
 // 对局场次
-const gameCount = matchList.reduce((result, item) => {
-  return result + item.gameList.length
-}, 0)
-
-const { playerManagement, heroManagement, locationMap } = parseMatchList(matchList)
-
-const playerList = playerManagement.playerList.sort((a, b) => {
-  if (a.lastMatchDate === b.lastMatchDate) {
-    return a.matchFormCount < b.matchFormCount ? 1 : -1
-  } else {
-    return dayjs(a.lastMatchDate) < dayjs(b.lastMatchDate) ? 1 : -1
-  }
+const gameCount = computed(() => {
+  return state.matchList.reduce((result, item) => {
+    return result + item.gameList.length
+  }, 0)
 })
 
-const heroList = heroManagement.heroList.sort((a, b) => {
-  return a.count < b.count ? 1 : -1
+const parsedData = computed(() => {
+  return parseMatchList(state.matchList)
 })
 
-const locationList = Object.values(locationMap)
+const handleSubmit = (matchList) => {
+  state.matchList = matchList
+}
+
+const playerList = computed(() => {
+  const { playerManagement } = parsedData.value
+  return playerManagement.playerList.sort((a, b) => {
+    if (a.lastMatchDate === b.lastMatchDate) {
+      return a.matchFormCount < b.matchFormCount ? 1 : -1
+    } else {
+      return dayjs(a.lastMatchDate) < dayjs(b.lastMatchDate) ? 1 : -1
+    }
+  })
+})
+const heroList = computed(() => {
+  const { heroManagement } = parsedData.value
+  return heroManagement.heroList.sort((a, b) => {
+    return a.count < b.count ? 1 : -1
+  })
+})
+const locationList = computed(() => {
+  const { locationMap } = parsedData.value
+  return Object.values(locationMap)
+})
 
 const router = useRouter()
 const handelGoPlayerDetail = (nickName) => {

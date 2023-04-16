@@ -72,8 +72,9 @@
         <el-form-item label="先BP队伍">
           <el-select :placeholder="`选择先Ban先选队伍`" v-model="game.bpFirstTeamIndex">
             <el-option v-for="(item,index) in TeamList" :key="index" :label="formatTeamName(item.code)" :value="item.code">
-              {{ formatTeamName(item.code) }}
+              {{ formatTeamName(item.code) }} <span v-if="game.teamList[index].location">({{game.teamList[index].location}})</span>
             </el-option>
+            <el-option label="无" value=""></el-option>
           </el-select>
         </el-form-item>
       </el-form>
@@ -214,7 +215,7 @@ const handleAddGame = () => {
   const gameOption = {
     gameType: GameTypeList[0],
     winTeamIndex: null,
-    bpFirstTeamIndex: TeamList[0],
+    bpFirstTeamIndex: '',
     bpHeroQueue: [],
     teamList: state.form.matchTeamList.map((team) => {
       return {

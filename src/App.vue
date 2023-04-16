@@ -4,7 +4,7 @@
       <div class="layout-h layout-align-center">
         <div class="title layout-h gutter-h">TICU-数据库</div>
         <div class="layout-fill">
-          <el-menu mode="horizontal">
+          <el-menu mode="horizontal" :ellipsis="false">
             <el-menu-item>
               <router-link to="/" active-class="active">首页</router-link>
             </el-menu-item>

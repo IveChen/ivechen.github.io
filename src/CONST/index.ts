@@ -155,7 +155,7 @@ export const PlayerOrderListForAnalysis = [
 // 比赛类型
 export const MatchTypeList = ['TICU正赛', '对黑']
 // 比赛模式
-export const MatchModeList = ['队长模式', '单一征召']
+export const MatchModeList = ['队长模式', '单一征召', '全英雄选择', '随机征召', '全英雄随机']
 // 对局类型
 export const GameTypeList = [
   '正常对局',

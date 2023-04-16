@@ -65,7 +65,7 @@
         <el-form-item label="获胜队伍">
           <el-select :placeholder="`选择获胜队伍`" v-model="game.winTeamIndex">
             <el-option v-for="(item,index) in TeamList" :key="index" :label="formatTeamName(item.code)" :value="item.code">
-              {{ formatTeamName(item.code) }}
+              {{ formatTeamName(item.code) }} <span v-if="game.teamList[index].location">({{game.teamList[index].location}})</span>
             </el-option>
           </el-select>
         </el-form-item>

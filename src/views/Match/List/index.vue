@@ -4,15 +4,22 @@
       <el-form-item>
         <el-date-picker :disabled-date="disabledDate" :shortcuts="shortcuts" start-placeholder="开始时间" end-placeholder="结束时间" type="daterange" v-model="state.form.date" clearable></el-date-picker>
       </el-form-item>
-      <el-form-item>
-        <el-select placeholder="包含该人员" v-model="state.form.player" clearable filterable>
+      <el-form-item label="包括">
+        <el-select placeholder="包括该人员" v-model="state.form.includePlayer" clearable filterable>
           <el-option v-for="(item,index) in PlayerList" :key="index" :label="`${item.nickName}(${item.name})`" :value="item.nickName">
             {{item.nickName}}({{item.name}})
           </el-option>
         </el-select>
       </el-form-item>
+      <!-- <el-form-item label="不包括">
+        <el-select placeholder="不包括该人员" v-model="state.form.excludePlayer" clearable filterable>
+          <el-option v-for="(item,index) in PlayerList" :key="index" :label="`${item.nickName}(${item.name})`" :value="item.nickName">
+            {{item.nickName}}({{item.name}})
+          </el-option>
+        </el-select>
+      </el-form-item> -->
       <el-form-item>
-        <el-select placeholder="包含该英雄" v-model="state.form.hero" clearable filterable>
+        <el-select placeholder="包括该英雄" v-model="state.form.hero" clearable filterable>
           <el-option v-for="(item,index) in HeroList" :key="index" :label="`${item.name_loc}(${item.name_english_loc})`" :value="item.name_loc">
             {{item.name_loc}}({{item.name_english_loc}})
           </el-option>
@@ -28,6 +35,7 @@
         <el-button @click="handleAdd" type="danger">配置比赛</el-button>
       </el-form-item>
     </el-form>
+    <div class="gutter-v">共计{{dataSource.length}}场比赛</div>
     <el-table :data="dataSource" border stripe>
       <el-table-column type="index" width="50" />
       <el-table-column prop="matchDate" label="比赛时间"></el-table-column>
@@ -70,7 +78,8 @@ import dayjs from 'dayjs'
 const state = reactive({
   form: {
     date: '',
-    player: '',
+    includePlayer: '',
+    excludePlayer: '',
     hero: '',
     matchType: ''
   }
@@ -98,11 +107,19 @@ const dataSource = computed(() => {
         return false
       }
     }
-    if (state.form.player) {
+    if (state.form.includePlayer) {
       const isValid = match.matchTeamList.flat().find((item) => {
-        return item.player === state.form.player
+        return item.player === state.form.includePlayer
       })
       if (!isValid) {
+        return false
+      }
+    }
+    if (state.form.excludePlayer) {
+      const isValid = match.matchTeamList.flat().find((item) => {
+        return item.player === state.form.excludePlayer
+      })
+      if (isValid) {
         return false
       }
     }

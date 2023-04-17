@@ -9,6 +9,14 @@
         </el-option>
       </el-select>
     </el-form-item>
+    <!-- 会有节奏，先放弃该功能 -->
+    <!-- <el-form-item label="不包括">
+      <el-select placeholder="不包括人员" v-model="state.form.excludePlayer" clearable filterable multiple style="width:250px">
+        <el-option v-for="(item,index) in NoBalancePlayerList" :key="index" :label="item" :value="item">
+          {{item}}
+        </el-option>
+      </el-select>
+    </el-form-item> -->
     <el-form-item>
       <el-button @click="handleSubmit">搜索</el-button>
     </el-form-item>
@@ -18,9 +26,9 @@
 import dayjs from 'dayjs'
 import { reactive, watch } from 'vue'
 import { state } from './globalFilteData'
-import { MatchTypeList } from '@/CONST'
+import { MatchTypeList, NoBalancePlayerList } from '@/CONST'
 import getMatchList from '@/utils/matchList'
-import { parseMatchList } from '@/utils/dataHelper'
+// import { parseMatchList } from '@/utils/dataHelper'
 
 const shortcuts = [
   {
@@ -46,6 +54,16 @@ const getFilterMatchList = () => {
     }
     if (state.form.matchType) {
       if (match.matchType !== state.form.matchType) {
+        return false
+      }
+    }
+    if (state.form.excludePlayer?.length) {
+      const isValid = match.matchTeamList.flat().find((item) => {
+        return state.form.excludePlayer.some((player) => {
+          return item.player === player
+        })
+      })
+      if (isValid) {
         return false
       }
     }

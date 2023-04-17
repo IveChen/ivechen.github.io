@@ -54,9 +54,9 @@
           </el-table-column>
           <el-table-column label="当前状态" sortable prop="matchFormCount">
             <template #default="scope">
-              <div v-if="scope.row.matchFormCount > 0" class="color-danger">{{scope.row.matchFormCount}}连胜</div>
+              <div v-if="scope.row.matchFormCount > 0" class="color-success">{{scope.row.matchFormCount}}连胜</div>
               <div v-if="scope.row.matchFormCount === 0">平局</div>
-              <div v-if="scope.row.matchFormCount < 0" class="color-success">{{Math.abs(scope.row.matchFormCount)}}连败</div>
+              <div v-if="scope.row.matchFormCount < 0" class="color-danger">{{Math.abs(scope.row.matchFormCount)}}连败</div>
             </template>
           </el-table-column>
           <el-table-column label="最后参赛时间" prop="lastMatchDate">

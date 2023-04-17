@@ -116,6 +116,7 @@ export const PlayerList = [
 ]
 
 export const IgnoreAnalysisPlayerList = ['超', '惑']
+export const NoBalancePlayerList = ['妖', '驴', '灿']
 
 // 选人模式 定员指跟队长一边
 export const BPPlayerModeList = [

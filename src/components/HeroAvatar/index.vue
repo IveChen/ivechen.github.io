@@ -1,7 +1,7 @@
 <template>
   <a class="cursor hero-wrapper" :href="link" target="_blank
   " :title="hero.name_loc">
-    <img :src="avatar" alt="" width="60" height="40">
+    <img :src="avatar" alt="" width="50" height="40">
   </a>
 </template>
 <script lang="ts" setup>

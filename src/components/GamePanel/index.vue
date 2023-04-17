@@ -64,6 +64,7 @@ const locationTwoIndex = computed(() => {
 <style lang="less" scoped>
 .game-wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }

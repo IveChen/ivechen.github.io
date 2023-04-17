@@ -1,5 +1,5 @@
 <template>
-  <span class="cursor player-wrapper">
+  <span class="cursor hero-wrapper">
     <a :href="link" target="_blank">{{hero.name_loc}}<el-icon><Link></Link></el-icon></a>
   </span>
 </template>
@@ -24,7 +24,7 @@ const link = computed(() => {
 })
 </script>
 <style lang="less" scoped>
-.player-wrapper {
+.hero-wrapper {
   span {
     font-size: 0.8em;
   }

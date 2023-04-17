@@ -31,9 +31,9 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item>
+      <!-- <el-form-item>
         <el-button @click="handleAdd" type="danger">配置比赛</el-button>
-      </el-form-item>
+      </el-form-item> -->
     </el-form>
     <div class="gutter-v">共计{{dataSource.length}}场比赛</div>
     <el-table :data="dataSource" border stripe>
@@ -155,15 +155,15 @@ const dataSource = computed(() => {
 
 const router = useRouter()
 
-const handleAdd = () => {
-  router.push({
-    path: '/matchEdit'
-  })
-}
+// const handleAdd = () => {
+//   router.push({
+//     path: '/matchEdit'
+//   })
+// }
 
 const handleView = (matchId) => {
   router.push({
-    path: '/matchEdit',
+    path: '/matchDetail',
     query: {
       matchId
     }

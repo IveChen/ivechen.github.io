@@ -30,7 +30,7 @@
       </el-descriptions>
     </el-card>
 
-    <el-card header="比赛结果" class="gutter-v">
+    <el-card header="比赛结果" class="gutter-v match-result-card">
       <div class="result-wrapper">
         <div class="team-info" v-for="(team,index) in state.match.matchTeamList" :key="index" :class="{
           'winTeam':index === state.match.winTeamIndex,
@@ -113,6 +113,10 @@ const handleGoEdit = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.match-result-card {
+  position: sticky;
+  top: -20px;
 }
 .team-info {
   display: flex;

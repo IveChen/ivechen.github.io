@@ -32,13 +32,13 @@ a {
   height: 100%;
 }
 .layout-padding {
-  padding: 20px;
+  padding: 15px;
 }
 .gutter-h {
-  margin-right: 20px;
+  margin-right: 15px;
 }
 .gutter-v {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .layout-align-center {
   align-items: center;
@@ -71,4 +71,13 @@ a {
 }
 .boxShadow-danger {
   box-shadow: inset 0 0 10px 0 #f56c6c;
+}
+// override
+.el-card {
+  .el-card__header {
+    padding: 10px 15px;
+  }
+  .el-card__body {
+    padding: 10px 15px;
+  }
 }

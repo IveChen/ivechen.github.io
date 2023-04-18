@@ -1,35 +1,16 @@
 <template>
   <div class="game-wrapper">
     <div class="team-info" :class="{
-      winTeam: locationOneIndex === game.winTeamIndex,
-      loseTeam: locationOneIndex === getOpponentTeamIndex(game.winTeamIndex)
-    }">
+      winTeam: team.isWin,
+      loseTeam: team.isLose
+    }" v-for="(team,index) in gameList" :key="index">
       <div class="team-location">
-        {{game.teamList[locationOneIndex].location}}
+        <span>{{team.location}}</span>
+          <span v-if="team.isWin">(胜利)</span>
+          <span v-if="team.isLose">(失败)</span>
       </div>
       <div class="hero-list">
-        <div class="hero-item" v-for="(heroObj,hindex) in game.teamList[locationOneIndex].heroList" :key="hindex">
-          <div class="hero">
-            <HeroAvatar :name="heroObj.hero"></HeroAvatar>
-          </div>
-          <div class="player">{{heroObj.player}}</div>
-        </div>
-      </div>
-    </div>
-    <div class="game-result-text">
-      <div v-if="game.winTeamIndex === locationOneIndex">胜</div>
-      <div v-else-if="game.winTeamIndex === locationTwoIndex">负</div>
-      <div v-else>平</div>
-    </div>
-    <div class="team-info" :class="{
-      winTeam: locationTwoIndex === game.winTeamIndex,
-      loseTeam: locationTwoIndex === getOpponentTeamIndex(game.winTeamIndex)
-    }">
-      <div class="team-location">
-        {{game.teamList[locationTwoIndex].location}}
-      </div>
-      <div class="hero-list">
-        <div class="hero-item" v-for="(heroObj,hindex) in game.teamList[locationTwoIndex].heroList" :key="hindex">
+        <div class="hero-item" v-for="(heroObj,hindex) in team.heroList" :key="hindex">
           <div class="hero">
             <HeroAvatar :name="heroObj.hero"></HeroAvatar>
           </div>
@@ -52,13 +33,19 @@ const props = defineProps({
   }
 })
 
-const locationOneIndex = computed(() => {
-  return props.game.teamList.findIndex((item) => {
-    return item.location === TeamLocationList[0]
+const gameList = computed(() => {
+  const list = props.game.teamList.map((team, index) => {
+    return {
+      originIndex: index,
+      isWin: props.game.winTeamIndex === index,
+      isLose: props.game.winTeamIndex === getOpponentTeamIndex(index),
+      ...team
+    }
   })
-})
-const locationTwoIndex = computed(() => {
-  return getOpponentTeamIndex(locationOneIndex.value)
+  list.sort((a, b) => {
+    return TeamLocationList.indexOf(a.location) > TeamLocationList.indexOf(b.location) ? 1 : -1
+  })
+  return list
 })
 </script>
 <style lang="less" scoped>
@@ -77,6 +64,9 @@ const locationTwoIndex = computed(() => {
   flex-direction: column;
   align-items: center;
   padding: 5px 10px;
+  &:nth-child(1) {
+    margin-right: 10px;
+  }
 
   &.winTeam {
     background: rgba(103, 194, 58,0.1);

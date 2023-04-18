@@ -3,10 +3,17 @@ import requests
 import os
 import json
 
-def loadAllImage():
-    f = open('./hero.json')
-    data = json.load(f)
-    f.close()
+def getDataFromUrl():
+    params = {
+        'task':'herolist'
+    }
+    headers={
+    }
+    response = requests.post('https://www.dota2.com.cn/datafeed/heroList',params=params,headers=headers)
+    return response.json().get('result').get("heroes")
+
+def downloadAllImage():
+    data = getDataFromUrl()
     for item in data:
         saveImage(item)
 
@@ -27,4 +34,4 @@ def saveImage(hero):
 
 
 if __name__ == "__main__":
-    loadAllImage()
+    downloadAllImage()

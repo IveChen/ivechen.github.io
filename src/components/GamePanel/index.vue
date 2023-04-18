@@ -69,13 +69,13 @@ const gameList = computed(() => {
   }
 
   &.winTeam {
-    background: rgba(103, 194, 58,0.1);
-    box-shadow: inset 0 0 10px 0 #67c23a;
+    // background: rgba(103, 194, 58,0.1);
+    box-shadow: inset 0 0 10px 0 rgba(103, 194, 58,0.5);
     border: 1px solid #67c23a;
   }
   &.loseTeam {
-    background: rgba(245, 108, 108,0.1);
-    box-shadow: inset 0 0 10px 0 #f56c6c;
+    // background: rgba(245, 108, 108,0.1);
+    box-shadow: inset 0 0 10px 0 rgba(245, 108, 108,0.5);
     border: 1px solid #f56c6c;
   }
 }

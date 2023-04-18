@@ -16,31 +16,43 @@ export class Hero {
   }
 
   /** player使用该英雄获得胜利 */
-  winGame (player) {
+  winGame (player, match, gameIndex) {
     this.count += 1
     this.winCount += 1
     if (!this.playerMap[player]) {
       this.playerMap[player] = {
         player,
         count: 0,
-        winCount: 0
+        winCount: 0,
+        loseCacheList: [],
+        winCacheList: []
       }
     }
     this.playerMap[player].count += 1
     this.playerMap[player].winCount += 1
+    this.playerMap[player].winCacheList.push({
+      match,
+      gameIndex
+    })
   }
 
   /** player使用该英雄输了 */
-  loseGame (player) {
+  loseGame (player, match, gameIndex) {
     this.count += 1
     if (!this.playerMap[player]) {
       this.playerMap[player] = {
         player,
         count: 0,
-        winCount: 0
+        winCount: 0,
+        loseCacheList: [],
+        winCacheList: []
       }
     }
     this.playerMap[player].count += 1
+    this.playerMap[player].loseCacheList.push({
+      match,
+      gameIndex
+    })
   }
 }
 

@@ -4,7 +4,7 @@
     <div class="layout-fill container">
       <div class="gutter-v">
         <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考(尤其是历史连胜连败数据)，不能作为最终结论。您可点击上方查看已录入的比赛数据" type="error"></el-alert>
-        <el-alert title="~~目前数据已更新完毕。" type="error"></el-alert>
+        <el-alert title="~~目前数据已更新完毕(2022-6-6 至 2022年4-13)。计划中的功能也基本开发完成。" type="error"></el-alert>
       </div>
       <el-card  class="gutter-v">
         <el-row>
@@ -61,7 +61,7 @@
           </el-table-column>
           <el-table-column label="最后参赛时间" prop="lastMatchDate">
           </el-table-column>
-          <el-table-column label="">
+          <el-table-column label="" width="80px">
             <template #default="scope">
               <el-button type="text" @click="handelGoPlayerDetail(scope.row.nickName)">查看</el-button>
             </template>
@@ -70,7 +70,7 @@
       </el-card>
       <el-card header="英雄数据">
         <el-table :data="heroList" border stripe>
-          <el-table-column label="英雄">
+          <el-table-column label="英雄" fixed="left">
             <template #default="scope">
               <Hero :name="scope.row.name"></Hero>
             </template>
@@ -80,11 +80,16 @@
               <Percent :number1="scope.row.winCount" :number2="scope.row.count"></Percent>
             </template>
           </el-table-column>
-          <el-table-column label="使用人员">
+          <el-table-column label="使用人员" min-width="200px">
             <template #default="scope">
               <div class="layout-h" v-for="(item,index) in scope.row.playerList" :key="index">
                 <span class="gutter-h">{{item.player}}</span><Percent :number1="item.winCount" :number2="item.count"></Percent>
               </div>
+            </template>
+          </el-table-column>
+          <el-table-column label="" width="80px">
+            <template #default="scope">
+              <el-button type="text" @click="handelGoHeroDetail(scope.row.name)">查看</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -156,6 +161,14 @@ const handelGoPlayerDetail = (nickName) => {
     path: '/playerDetail',
     query: {
       nickName
+    }
+  })
+}
+const handelGoHeroDetail = (name) => {
+  router.push({
+    path: '/heroDetail',
+    query: {
+      name
     }
   })
 }

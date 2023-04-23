@@ -67,13 +67,14 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive, watch } from 'vue'
+import { computed, reactive } from 'vue'
 import getMatchList from '@/utils/matchList'
 import { TeamIndex, MatchTypeList, PlayerList } from '@/CONST'
 import HeroList from '@/CONST/hero'
 import Player from '@/components/Player/index.vue'
 import { useRouter } from 'vue-router'
 import dayjs from 'dayjs'
+import { shortcuts } from '@/utils/commonConfig'
 
 const state = reactive({
   form: {
@@ -84,17 +85,6 @@ const state = reactive({
     matchType: ''
   }
 })
-
-const shortcuts = [
-  {
-    text: '今年',
-    value: () => {
-      const end = new Date()
-      const start = new Date(new Date().getFullYear(), 0)
-      return [start, end]
-    }
-  }
-]
 const disabledDate = (v) => {
   return dayjs(v) > dayjs()
 }

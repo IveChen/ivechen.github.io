@@ -6,7 +6,6 @@
 </template>
 <script lang="ts" setup>
 import heroList from '@/CONST/hero'
-import { Link } from '@element-plus/icons-vue'
 import { computed } from 'vue'
 
 const props = defineProps({

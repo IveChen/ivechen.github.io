@@ -75,7 +75,6 @@
 import getMatchList from '@/utils/matchList'
 import { reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { getOpponentTeamIndex } from '@/utils/index'
 import GamePanel from '@/components/GamePanel/index.vue'
 
 const route = useRoute()

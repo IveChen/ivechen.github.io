@@ -116,7 +116,6 @@ export const parseMatchList = (matchList) => {
       locationMap[loseGameTeam.location].count += 1
     })
   })
-  console.log(heroManagement)
   return {
     playerManagement,
     heroManagement,

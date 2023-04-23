@@ -24,22 +24,10 @@
 </template>
 <script lang="ts" setup>
 import dayjs from 'dayjs'
-import { reactive, watch } from 'vue'
 import { state } from './globalFilteData'
-import { MatchTypeList, NoBalancePlayerList } from '@/CONST'
 import getMatchList from '@/utils/matchList'
-// import { parseMatchList } from '@/utils/dataHelper'
+import { shortcuts } from '@/utils/commonConfig'
 
-const shortcuts = [
-  {
-    text: '今年',
-    value: () => {
-      const end = new Date()
-      const start = new Date(new Date().getFullYear(), 0)
-      return [start, end]
-    }
-  }
-]
 const disabledDate = (v) => {
   return dayjs(v) > dayjs()
 }

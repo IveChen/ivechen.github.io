@@ -137,8 +137,6 @@
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
 // @ts-ignore
-import getMatchList from '@/utils/matchList'
-// @ts-ignore
 import { parseMatchList } from '@/utils/dataHelper'
 import Player from '@/components/Player/index.vue'
 import Percent from '@/components/Percent/index.vue'

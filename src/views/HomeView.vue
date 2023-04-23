@@ -100,9 +100,7 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import { computed, reactive, watch } from 'vue'
-// @ts-ignore
-import getMatchList from '@/utils/matchList'
+import { computed, reactive } from 'vue'
 // @ts-ignore
 import { parseMatchList } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
@@ -114,7 +112,6 @@ const state = reactive({
   matchList: []
 })
 
-const matchList = getMatchList()
 // 比赛场次
 const matchCount = computed(() => {
   return state.matchList.length

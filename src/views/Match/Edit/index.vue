@@ -123,7 +123,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, onUnmounted, reactive, watch } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
 import { MatchTypeList, TeamList, PlayerList, PlayerOrderList, BPPlayerModeList, MatchModeList, GameTypeList, TeamLocationList } from '@/CONST'
 import { ElMessage } from 'element-plus'

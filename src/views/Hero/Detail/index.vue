@@ -51,15 +51,11 @@
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
 // @ts-ignore
-import getMatchList from '@/utils/matchList'
-// @ts-ignore
 import { parseMatchList } from '@/utils/dataHelper'
-import Player from '@/components/Player/index.vue'
 import GamePanel from '@/components/GamePanel/index.vue'
 import Percent from '@/components/Percent/index.vue'
 import HeroAvatar from '@/components/HeroAvatar/index.vue'
 import GlobalMatchListFilter from '@/components/GobalMatchListFilter/index.vue'
-import { PlayerList } from '@/CONST'
 import { computed, reactive } from 'vue'
 import dayjs from 'dayjs'
 
@@ -79,11 +75,6 @@ const state = reactive({
 const handleSubmit = (matchList) => {
   state.matchList = matchList
 }
-
-// 比赛场次
-const matchCount = computed(() => {
-  return state.matchList.length
-})
 
 const parsedData = computed(() => {
   return parseMatchList(state.matchList)

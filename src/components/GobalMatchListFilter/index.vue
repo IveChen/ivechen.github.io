@@ -27,6 +27,7 @@ import dayjs from 'dayjs'
 import { state } from './globalFilteData'
 import getMatchList from '@/utils/matchList'
 import { shortcuts } from '@/utils/commonConfig'
+import { MatchTypeList } from '@/CONST'
 
 const disabledDate = (v) => {
   return dayjs(v) > dayjs()

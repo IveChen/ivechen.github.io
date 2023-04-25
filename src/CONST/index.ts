@@ -13,9 +13,9 @@ export const PlayerList = [
   },
   {
     fullName: '胡翔',
-    name: 'Sed',
+    name: '胡淳鹅Sed',
     nickName: '鹅',
-    desc: '全靠我!!!无敌!!!'
+    desc: 'Ticu的AME!!!'
   },
   {
     fullName: '??',

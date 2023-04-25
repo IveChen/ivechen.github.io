@@ -15,7 +15,7 @@ export const PlayerList = [
     fullName: '胡翔',
     name: '胡淳鹅Sed',
     nickName: '鹅',
-    desc: 'Ticu的AME!!!'
+    desc: 'TICU的A!M!E!!!'
   },
   {
     fullName: '??',

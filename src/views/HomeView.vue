@@ -4,7 +4,7 @@
     <div class="layout-fill container">
       <div class="gutter-v">
         <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考(尤其是历史连胜连败数据)，不能作为最终结论。您可点击上方查看已录入的比赛数据" type="error"></el-alert>
-        <el-alert title="~~目前数据已更新至2023年4月23日。比赛第二日(特别忙在当个周末)更新。" type="error"></el-alert>
+        <el-alert title="~~数据更新至2023年4月24日。比赛第二日(特别忙在当个周末)更新。" type="error"></el-alert>
       </div>
       <el-card  class="gutter-v">
         <el-row>

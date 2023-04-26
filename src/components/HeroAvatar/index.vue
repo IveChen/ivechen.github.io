@@ -1,7 +1,8 @@
 <template>
   <a class="cursor hero-wrapper" :href="link" target="_blank
   " :title="hero.name_loc">
-    <img :src="avatar" alt="" width="50" height="40">
+    <img :src="avatar" :alt="name" width="50" height="40">
+    <div class="hero-name">{{name}}</div>
   </a>
 </template>
 <script lang="ts" setup>
@@ -29,7 +30,15 @@ const avatar = computed(() => {
 <style lang="less" scoped>
 .hero-wrapper {
   img {
+    display: block;
+    margin: 0 auto;
+
     object-fit: contain;
+  }
+  .hero-name {
+    margin-top: -3px;
+    color: #999;
+    font-size: 12px;
   }
 }
 </style>

@@ -109,7 +109,7 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: 'iGXY',
+    name: 'iG.xy',
     nickName: '鸟',
     infinite: true
   }

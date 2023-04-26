@@ -3,8 +3,8 @@
     <GlobalMatchListFilter @submit="handleSubmit"></GlobalMatchListFilter>
     <div class="layout-fill container">
       <div class="gutter-v">
-        <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考(尤其是历史连胜连败数据)，不能作为最终结论。您可点击上方查看已录入的比赛数据。感兴趣的比赛可以前往b站scboy根据日期查找录像。" type="error"></el-alert>
-        <el-alert title="默认统计包含dlc，您可在上方选择比赛类型进行筛选。~~数据更新至2023年4月25日，比赛第二日更新(特别忙在当个周末)。" type="error"></el-alert>
+        <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考(尤其是历史连胜连败数据)，不能作为最终结论。感兴趣的比赛可根据日期前往b站scboy看录像。" type="error"></el-alert>
+        <el-alert title="默认统计包含平日对黑(方便查看最新比赛情况)，想看正赛数据您可在上方选择比赛类型进行筛选。~~数据更新至2023年4月25日" type="error"></el-alert>
       </div>
       <el-card  class="gutter-v">
         <el-row>

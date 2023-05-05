@@ -44,14 +44,20 @@
       <el-table-column label="结果" width="400px">
         <template #default="scope">
           <div class="layout-h">
-            <div class="layout-h">
+            <div class="layout-h" :class="{
+              'color-success': scope.row.winTeamIndex === 0,
+              'color-danger':  scope.row.loseTeamIndex === 0
+            }">
               <Player v-for="(item,index) in scope.row.team1" :key="index" :name="item.player"></Player>
             </div>
             <div class="score">
               <div>{{scope.row.scoreList}}</div>
               <div v-if="scope.row.playOffScoreList" class="play-off-score">{{scope.row.playOffScoreList}}</div>
             </div>
-            <div class="layout-h">
+            <div class="layout-h"  :class="{
+              'color-success': scope.row.winTeamIndex === 1,
+              'color-danger':  scope.row.loseTeamIndex === 1
+            }">
               <Player v-for="(item,index) in scope.row.team2" :key="index" :name="item.player"></Player>
             </div>
           </div>
@@ -75,6 +81,7 @@ import Player from '@/components/Player/index.vue'
 import { useRouter } from 'vue-router'
 import dayjs from 'dayjs'
 import { shortcuts } from '@/utils/commonConfig'
+import { getOpponentTeamIndex } from '@/utils'
 
 const state = reactive({
   form: {
@@ -137,6 +144,7 @@ const dataSource = computed(() => {
       ...item,
       team1: item.matchTeamList[TeamIndex.Team1],
       team2: item.matchTeamList[TeamIndex.Team2],
+      loseTeamIndex: getOpponentTeamIndex(item.winTeamIndex),
       scoreList: item.scoreList.join(':'),
       playOffScoreList: playOffScoreList === '0:0' ? null : playOffScoreList
     }

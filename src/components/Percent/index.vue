@@ -1,5 +1,5 @@
 <template>
-  <div class="percent-wrapper">{{props.number1}}/{{props.number2}}<span class="color-info">({{percent}}%)</span></div>
+  <div class="percent-wrapper">{{props.number1}}<template v-if="!hideNumber2">/{{props.number2}}</template><span class="color-info">({{percent}}%)</span></div>
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
@@ -12,6 +12,10 @@ const props = defineProps({
   number2: {
     type: Number,
     default: null
+  },
+  hideNumber2: {
+    type: Boolean,
+    default: false
   }
 })
 

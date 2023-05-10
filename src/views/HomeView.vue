@@ -4,7 +4,7 @@
     <div class="layout-fill container">
       <div class="gutter-v">
         <el-alert title="录入数据必然存在谬误和缺失，所以数据仅能作为参考，不能作为最终结论。感兴趣的比赛可根据日期前往b站scboy看录像。" type="error"></el-alert>
-        <el-alert title="默认统计包含对黑(方便查看最新比赛情况)，正赛统计数据您可在上方选择比赛类型进行筛选。~~数据更新至2023年5月4日(次日或周末更新)" type="error"></el-alert>
+        <el-alert title="默认统计包含对黑(方便查看最新比赛情况)，正赛统计数据您可在上方选择比赛类型进行筛选。~~数据更新至2023年5月9日(次日或周末更新)" type="error"></el-alert>
       </div>
       <el-card  class="gutter-v">
         <el-row>
@@ -12,7 +12,7 @@
             <el-statistic title="参赛人数" :value="playerList.length" />
           </el-col>
           <el-col :span="6">
-            <el-statistic title="总上场英雄" :value="heroList.length" />
+            <el-statistic :title="`上场英雄(总${HeroList.length})`" :value="heroList.length" />
           </el-col>
           <el-col :span="6">
             <el-statistic title="比赛次数" :value="matchCount" />
@@ -45,7 +45,7 @@
           </el-table-column>
           <el-table-column label="使用英雄" sortable prop="heroList.length">
             <template #default="scope">
-              {{scope.row.heroList.length}}
+              <Percent :number1="scope.row.heroList.length" :number2="HeroList.length"></Percent>
             </template>
           </el-table-column>
           <el-table-column label="最长连胜" prop="maxMatchWinCount" sortable>
@@ -105,6 +105,7 @@ import { computed, reactive } from 'vue'
 import { parseMatchList } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
+import HeroList from '@/CONST/hero'
 import GlobalMatchListFilter from '@/components/GobalMatchListFilter/index.vue'
 import dayjs from 'dayjs'
 

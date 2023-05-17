@@ -64,15 +64,15 @@
         </el-form-item>
         <el-form-item label="获胜队伍">
           <el-select :placeholder="`选择获胜队伍`" v-model="game.winTeamIndex">
-            <el-option v-for="(item,index) in TeamList" :key="index" :label="formatTeamName(item.code)" :value="item.code">
-              {{ formatTeamName(item.code) }} <span v-if="game.teamList[index].location">({{game.teamList[index].location}})</span>
+            <el-option v-for="(item,index) in TeamList" :key="index" :label="formatTeamName2(game.teamList[item.code])" :value="item.code">
+              {{ formatTeamName2(game.teamList[item.code]) }} <span v-if="game.teamList[index].location">({{game.teamList[index].location}})</span>
             </el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="先BP队伍">
           <el-select :placeholder="`选择先Ban先选队伍`" v-model="game.bpFirstTeamIndex">
-            <el-option v-for="(item,index) in TeamList" :key="index" :label="formatTeamName(item.code)" :value="item.code">
-              {{ formatTeamName(item.code) }} <span v-if="game.teamList[index].location">({{game.teamList[index].location}})</span>
+            <el-option v-for="(item,index) in TeamList" :key="index" :label="formatTeamName2(game.teamList[item.code])" :value="item.code">
+              {{ formatTeamName2(game.teamList[item.code]) }} <span v-if="game.teamList[index].location">({{game.teamList[index].location}})</span>
             </el-option>
             <el-option label="无" value=""></el-option>
           </el-select>
@@ -91,14 +91,17 @@
         </el-form-item>
       </el-form>
       <div class="layout-h">
-        <el-card v-for="(item,tindex) in game.teamList" :key="tindex" :header="formatTeamName(tindex)" class="layout-fill" :class="{'gutter-h':tindex === 0}">
+        <el-card v-for="(item,tindex) in game.teamList" :key="tindex" :header="formatTeamName2(game.teamList[tindex])" class="layout-fill" :class="{'gutter-h':tindex === 0}">
           <el-form-item label="位置">
             <el-select :placeholder="`选择位置`" v-model="item.location" @change="handleLocationChange(game.teamList,tindex)">
               <el-option v-for="(item,index) in TeamLocationList" :key="index" :label="item" :value="item">
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :label="`${hitem.player}`" v-for="(hitem,hindex) in item.heroList" :key="hindex">
+          <el-form-item v-for="(hitem,hindex) in item.heroList" :key="hindex">
+            <el-select :placeholder="`选择队员${index+1}`" v-model="hitem.player" clearable  filterable class="gutter-h">
+              <el-option v-for="(item,index) in PlayerList" :key="index" :label="`${item.nickName}(${item.name})`" :value="item.nickName"></el-option>
+            </el-select>
             <el-select :placeholder="`选择英雄`" v-model="hitem.hero" filterable>
               <el-option v-for="(item,index) in HeroList" :key="index" :label="item.name_loc" :value="item.name_loc">
               </el-option>
@@ -263,6 +266,11 @@ const formatTeamName = (code) => {
   }).join('')
 }
 
+const formatTeamName2 = (team) => {
+  return team.heroList.map((item) => {
+    return item.player
+  }).join('')
+}
 watch(() => state.form, () => {
   localStorage.setItem(key, JSON.stringify(state.form))
 }, {

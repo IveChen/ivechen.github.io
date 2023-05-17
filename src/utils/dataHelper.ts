@@ -5,11 +5,15 @@ import { getOpponentTeamIndex, combination } from './index'
 
 const getTeammate = (playerList, player) => {
   return playerList.reduce((result, item) => {
-    if (item !== player) {
+    if (item !== player && item !== 'X' && item !== 'Y') {
       result.push(item)
     }
     return result
   }, [])
+}
+
+const checkPlayerIsValid = (player) => {
+  return IgnoreAnalysisPlayerList.indexOf(player) === -1 && player !== 'X' && player !== 'Y'
 }
 
 export const parseMatchList = (matchList) => {
@@ -18,28 +22,28 @@ export const parseMatchList = (matchList) => {
   const locationMap = {}
   matchList.forEach((match) => {
     if (match.winTeamIndex === null) {
-      match.matchTeamList.forEach((team) => {
+      // 平局
+      match.realMatchTeamList.forEach((team) => {
         team.forEach((item) => {
-          if (IgnoreAnalysisPlayerList.indexOf(item.player) > -1) return
+          if (!checkPlayerIsValid(item.player)) return
           const player = playerManagement.getPlayer(item.player)
           player.setMatchDate(match.matchDate)
           player.drawMatch()
           player.drawOrder(item.order)
         })
       })
-      // 平局
     } else {
       const loseMatchTeamIndex = getOpponentTeamIndex(match.winTeamIndex)
-      const winMatchTeam = match.matchTeamList[match.winTeamIndex]
-      const loseMatchTeam = match.matchTeamList[loseMatchTeamIndex]
+      const winMatchTeam = match.realMatchTeamList[match.winTeamIndex]
+      const loseMatchTeam = match.realMatchTeamList[loseMatchTeamIndex]
       const winTeamPlayerList = winMatchTeam.map((item) => item.player).filter((item) => {
-        return IgnoreAnalysisPlayerList.indexOf(item.player) === -1
+        return checkPlayerIsValid(item.player)
       })
       const loseTeamPlayerList = loseMatchTeam.map((item) => item.player).filter((item) => {
-        return IgnoreAnalysisPlayerList.indexOf(item.player) === -1
+        return checkPlayerIsValid(item.player)
       })
       winMatchTeam.forEach((item) => {
-        if (IgnoreAnalysisPlayerList.indexOf(item.player) > -1) return
+        if (!checkPlayerIsValid(item.player)) return
         const player = playerManagement.getPlayer(item.player)
         player.winMatch()
         player.setMatchDate(match.matchDate)
@@ -83,6 +87,7 @@ export const parseMatchList = (matchList) => {
         if (IgnoreAnalysisPlayerList.indexOf(item.player) > -1) return
         const player = playerManagement.getPlayer(item.player)
         player.winGame()
+        player.setMatchDate(match.matchDate)
         player.winLocation(winGameTeam.location)
         player.winHero(item.hero)
         const hero = heroManagement.getHero(item.hero)
@@ -92,6 +97,7 @@ export const parseMatchList = (matchList) => {
         if (IgnoreAnalysisPlayerList.indexOf(item.player) > -1) return
         const player = playerManagement.getPlayer(item.player)
         player.loseGame()
+        player.setMatchDate(match.matchDate)
         player.loseLocation(loseGameTeam.location)
         player.loseHero(item.hero)
         const hero = heroManagement.getHero(item.hero)

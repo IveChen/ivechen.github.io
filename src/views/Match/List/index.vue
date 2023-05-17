@@ -48,7 +48,7 @@
               'color-success': scope.row.winTeamIndex === 0,
               'color-danger':  scope.row.loseTeamIndex === 0
             }">
-              <Player v-for="(item,index) in scope.row.team1" :key="index" :name="item.player"></Player>
+              <span v-for="(item,index) in scope.row.team1" :key="index" >{{item.player}}</span>
             </div>
             <div class="score">
               <div>{{scope.row.scoreList}}</div>
@@ -58,7 +58,7 @@
               'color-success': scope.row.winTeamIndex === 1,
               'color-danger':  scope.row.loseTeamIndex === 1
             }">
-              <Player v-for="(item,index) in scope.row.team2" :key="index" :name="item.player"></Player>
+              <span v-for="(item,index) in scope.row.team2" :key="index" >{{item.player}}</span>
             </div>
           </div>
         </template>
@@ -138,15 +138,16 @@ const dataSource = computed(() => {
       }
     }
     return true
-  }).map((item) => {
-    const playOffScoreList = item.playOffScoreList.join(':')
+  }).map((match) => {
+    const playOffScoreList = match.playOffScoreList.join(':')
+    console.log(match.playOffGameCount)
     return {
-      ...item,
-      team1: item.matchTeamList[TeamIndex.Team1],
-      team2: item.matchTeamList[TeamIndex.Team2],
-      loseTeamIndex: getOpponentTeamIndex(item.winTeamIndex),
-      scoreList: item.scoreList.join(':'),
-      playOffScoreList: playOffScoreList === '0:0' ? null : playOffScoreList
+      ...match,
+      team1: match.realMatchTeamList[TeamIndex.Team1],
+      team2: match.realMatchTeamList[TeamIndex.Team2],
+      loseTeamIndex: getOpponentTeamIndex(match.winTeamIndex),
+      scoreList: match.scoreList.join(':'),
+      playOffScoreList: match.playOffGameCount ? playOffScoreList : null
     }
   })
 })

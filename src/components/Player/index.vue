@@ -1,6 +1,11 @@
 <template>
   <span class="cursor player-wrapper" :class="`field-${field}`">
-    {{player[field]}}
+    <template v-if="name === 'X' || name === 'Y'">
+      {{name}}
+    </template>
+    <template v-else>
+      {{player[field]}}
+    </template>
   </span>
 </template>
 <script lang="ts" setup>

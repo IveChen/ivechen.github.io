@@ -32,7 +32,7 @@
 
     <el-card header="比赛结果" class="gutter-v match-result-card">
       <div class="result-wrapper">
-        <div class="team-info" v-for="(team,index) in state.match.matchTeamList" :key="index">
+        <div class="team-info" v-for="(team,index) in state.match.realMatchTeamList" :key="index">
           <div class="player-box" v-for="(playerObj,pindex) in team" :key="pindex">
             <div class="player">{{playerObj.player}}</div>
             <div class="order">{{playerObj.order}}</div>

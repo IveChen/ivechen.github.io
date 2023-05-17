@@ -119,7 +119,7 @@ export const PlayerList = [
   }
 ]
 
-export const IgnoreAnalysisPlayerList = ['超', '惑']
+export const IgnoreAnalysisPlayerList = ['超', '惑', 'X', 'Y']
 export const NoBalancePlayerList = ['妖', '驴', '灿']
 
 // 选人模式 定员指跟队长一边
@@ -130,6 +130,7 @@ export const BPPlayerModeList = [
 ]
 // 选人顺序列表
 export const PlayerOrderList = [
+  '固定',
   '队长1',
   '队长2',
   '一选',
@@ -139,8 +140,7 @@ export const PlayerOrderList = [
   '五选',
   '六选',
   '七选',
-  '八选',
-  '固定'
+  '八选'
 ]
 
 export const PlayerOrderListForAnalysis = [

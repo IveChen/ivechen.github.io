@@ -1,3 +1,4 @@
+/* eslint-disable */
 import dayjs from 'dayjs'
 import md5 from 'md5'
 

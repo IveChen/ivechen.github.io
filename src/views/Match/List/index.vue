@@ -140,7 +140,6 @@ const dataSource = computed(() => {
     return true
   }).map((match) => {
     const playOffScoreList = match.playOffScoreList.join(':')
-    console.log(match.playOffGameCount)
     return {
       ...match,
       team1: match.realMatchTeamList[TeamIndex.Team1],

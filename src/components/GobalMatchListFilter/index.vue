@@ -9,14 +9,13 @@
         </el-option>
       </el-select>
     </el-form-item>
-    <!-- 会有节奏，先放弃该功能 -->
-    <!-- <el-form-item label="不包括">
-      <el-select placeholder="不包括人员" v-model="state.form.excludePlayer" clearable filterable multiple style="width:250px">
+    <el-form-item label="不包括">
+      <el-select placeholder="不包括不平衡选手" v-model="state.form.excludePlayer" clearable filterable multiple style="width:250px">
         <el-option v-for="(item,index) in NoBalancePlayerList" :key="index" :label="item" :value="item">
           {{item}}
         </el-option>
       </el-select>
-    </el-form-item> -->
+    </el-form-item>
     <el-form-item>
       <el-button @click="handleSubmit">搜索</el-button>
     </el-form-item>
@@ -27,7 +26,7 @@ import dayjs from 'dayjs'
 import { state } from './globalFilteData'
 import getMatchList from '@/utils/matchList'
 import { shortcuts } from '@/utils/commonConfig'
-import { MatchTypeList } from '@/CONST'
+import { MatchTypeList, NoBalancePlayerList } from '@/CONST'
 
 const disabledDate = (v) => {
   return dayjs(v) > dayjs()

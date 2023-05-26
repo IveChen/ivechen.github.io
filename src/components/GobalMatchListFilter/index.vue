@@ -10,8 +10,8 @@
       </el-select>
     </el-form-item>
     <el-form-item label="不包括">
-      <el-select placeholder="不包括不平衡选手" v-model="state.form.excludePlayer" clearable filterable multiple style="width:250px">
-        <el-option v-for="(item,index) in NoBalancePlayerList" :key="index" :label="item" :value="item">
+      <el-select placeholder="不包括超模选手" v-model="state.form.excludePlayer" clearable filterable multiple style="width:250px">
+        <el-option v-for="(item,index) in OverpowerPlayerList" :key="index" :label="item" :value="item">
           {{item}}
         </el-option>
       </el-select>
@@ -26,7 +26,7 @@ import dayjs from 'dayjs'
 import { state } from './globalFilteData'
 import getMatchList from '@/utils/matchList'
 import { shortcuts } from '@/utils/commonConfig'
-import { MatchTypeList, NoBalancePlayerList } from '@/CONST'
+import { MatchTypeList, OverpowerPlayerList } from '@/CONST'
 
 const disabledDate = (v) => {
   return dayjs(v) > dayjs()

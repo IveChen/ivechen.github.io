@@ -4,7 +4,7 @@
       <el-date-picker :disabled-date="disabledDate"   :shortcuts="shortcuts" start-placeholder="开始时间" end-placeholder="结束时间" type="daterange" v-model="state.form.date" clearable></el-date-picker>
     </el-form-item>
     <el-form-item>
-      <el-select placeholder="选择比赛类型" v-model="state.form.matchType" clearable>
+      <el-select placeholder="选择比赛类型" v-model="state.form.matchType" clearable multiple style="width:300px">
         <el-option v-for="(item,index) in MatchTypeList" :key="index" :label="item" :value="item">
         </el-option>
       </el-select>
@@ -41,7 +41,7 @@ const getFilterMatchList = () => {
       }
     }
     if (state.form.matchType) {
-      if (match.matchType !== state.form.matchType) {
+      if (state.form.matchType.indexOf(match.matchType) === -1) {
         return false
       }
     }

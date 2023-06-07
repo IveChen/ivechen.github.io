@@ -116,11 +116,16 @@ export const PlayerList = [
     fullName: '??',
     name: 'iG.CoffeeMS',
     nickName: '咖'
+  },
+  {
+    fullName: '??',
+    name: '刘神',
+    nickName: '刘'
   }
 ]
 
 export const IgnoreAnalysisPlayerList = ['超', '惑', 'X', 'Y']
-export const OverpowerPlayerList = ['妖', '驴', '咖']
+export const OverpowerPlayerList = ['妖', '驴', '咖', '刘']
 
 // 选人模式 定员指跟队长一边
 export const BPPlayerModeList = [

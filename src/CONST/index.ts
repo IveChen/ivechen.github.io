@@ -33,9 +33,9 @@ export const PlayerList = [
     nickName: '徐'
   },
   {
-    fullName: '??',
-    name: '貔貅',
-    nickName: '王'
+    fullName: '钱赞企',
+    name: 'nostalie',
+    nickName: '钱'
   },
   {
     fullName: '??',
@@ -58,9 +58,9 @@ export const PlayerList = [
     nickName: '娟'
   },
   {
-    fullName: '钱赞企',
-    name: 'nostalie',
-    nickName: '钱'
+    fullName: '??',
+    name: '貔貅',
+    nickName: '王'
   },
   {
     fullName: '李培楠',
@@ -121,11 +121,16 @@ export const PlayerList = [
     fullName: '??',
     name: '刘神',
     nickName: '刘'
+  },
+  {
+    fullName: '??',
+    name: '周神',
+    nickName: '鲷'
   }
 ]
 
 export const IgnoreAnalysisPlayerList = ['超', '惑', 'X', 'Y']
-export const OverpowerPlayerList = ['妖', '驴', '咖', '刘']
+export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷']
 
 // 选人模式 定员指跟队长一边
 export const BPPlayerModeList = [

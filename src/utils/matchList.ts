@@ -37,7 +37,7 @@ const handleMatchData = (match) => {
         return item
       } else {
         return {
-          player: index === 0 ? 'X' : 'Y',
+          player: 'X',//index === 0 ? 'X' : 'Y',
           order: item.order,
           replace: true
         }

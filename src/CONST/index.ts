@@ -126,18 +126,45 @@ export const PlayerList = [
     fullName: '??',
     name: '周神',
     nickName: '鲷'
+  },
+  {
+    fullName: '??',
+    name: 'Scarlett',
+    nickName: 'Scarlett'
+  },
+  {
+    fullName: '??',
+    name: 'Skillous',
+    nickName: 'Skillous'
+  },
+  {
+    fullName: '??',
+    name: 'Kelazhur',
+    nickName: 'Kelazhur'
+  },
+  {
+    fullName: '??',
+    name: 'Elazer',
+    nickName: 'Elazer'
+  },
+  {
+    fullName: '??',
+    name: 'Fotros',
+    nickName: 'Fotros'
+  },
+  {
+    fullName: '??',
+    name: '超管',
+    nickName: '超管',
+    infinite: true
   }
 ]
 
-export const IgnoreAnalysisPlayerList = ['超', '惑', 'X', 'Y']
+export const IgnoreAnalysisPlayerList = ['超管', '惑', 'X', 'Y']
 export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷']
 
 // 选人模式 定员指跟队长一边
-export const BPPlayerModeList = [
-  '全部选马',
-  '部定部选',
-  '全部定员'
-]
+export const BPPlayerModeList = ['全部选马', '部定部选', '全部定员']
 // 选人顺序列表
 export const PlayerOrderList = [
   '固定',
@@ -166,23 +193,23 @@ export const PlayerOrderListForAnalysis = [
   '固定'
 ]
 // 比赛类型
-export const MatchTypeList = ['TICU正赛', '对黑', 'DLC']
+export const MatchTypeList = ['TICU正赛', '对黑', 'DLC', '国际TICU']
 // 比赛模式
-export const MatchModeList = ['队长模式', '单一征召', '全英雄选择', '随机征召', '全英雄随机']
+export const MatchModeList = [
+  '队长模式',
+  '单一征召',
+  '全英雄选择',
+  '随机征召',
+  '全英雄随机'
+]
 // 对局类型
-export const GameTypeList = [
-  '正常对局',
-  '加赛'
-]
+export const GameTypeList = ['正常对局', '加赛']
 // 地图位置
-export const TeamLocationList = [
-  '天辉',
-  '夜魇'
-]
+export const TeamLocationList = ['天辉', '夜魇']
 
 export enum TeamIndex {
   Team1 = 0,
-  Team2 = 1
+  Team2 = 1,
 }
 // 队伍列表
 export const TeamList = [
@@ -196,7 +223,57 @@ export const TeamList = [
   }
 ]
 // 队伍一先ban先选
-export const Team1BFPFList = ['0b', '1b', '0b', '1b', '0p', '1p', '1p', '0p', '0b', '1b', '0b', '1b', '0b', '1b', '1p', '0p', '0p', '1p', '0b', '1b', '0b', '1b', '0p', '1p']
+export const Team1BFPFList = [
+  '0b',
+  '1b',
+  '0b',
+  '1b',
+  '0p',
+  '1p',
+  '1p',
+  '0p',
+  '0b',
+  '1b',
+  '0b',
+  '1b',
+  '0b',
+  '1b',
+  '1p',
+  '0p',
+  '0p',
+  '1p',
+  '0b',
+  '1b',
+  '0b',
+  '1b',
+  '0p',
+  '1p'
+]
 
 // 队伍二先ban先选
-export const Team2BFPFList = ['1b', '0b', '1b', '0b', '1p', '0p', '0p', '1p', '1b', '0b', '1b', '0b', '1b', '0b', '0p', '1p', '1p', '0p', '1b', '0b', '1b', '0b', '1p', '0p']
+export const Team2BFPFList = [
+  '1b',
+  '0b',
+  '1b',
+  '0b',
+  '1p',
+  '0p',
+  '0p',
+  '1p',
+  '1b',
+  '0b',
+  '1b',
+  '0b',
+  '1b',
+  '0b',
+  '0p',
+  '1p',
+  '1p',
+  '0p',
+  '1b',
+  '0b',
+  '1b',
+  '0b',
+  '1p',
+  '0p'
+]

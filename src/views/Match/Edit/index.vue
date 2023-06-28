@@ -269,7 +269,11 @@ const formatTeamName = (code) => {
 const formatTeamName2 = (team) => {
   return team.heroList.map((item) => {
     return item.player
-  }).join('')
+  }).join(team.heroList.some((item) => {
+    return item.player.length > 1
+  })
+    ? '/'
+    : '')
 }
 watch(() => state.form, () => {
   localStorage.setItem(key, JSON.stringify(state.form))

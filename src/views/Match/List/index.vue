@@ -38,17 +38,18 @@
     <div class="gutter-v">共计{{dataSource.length}}场比赛</div>
     <el-table :data="dataSource" border stripe>
       <el-table-column type="index" width="50" />
-      <el-table-column prop="matchDate" label="比赛时间"></el-table-column>
-      <el-table-column prop="matchType" label="比赛类型"></el-table-column>
-      <el-table-column prop="matchMode" label="比赛模式"></el-table-column>
-      <el-table-column label="结果" width="400px">
+      <el-table-column prop="matchDate" label="比赛时间" width="150"></el-table-column>
+      <el-table-column prop="matchType" label="比赛类型" width="150"></el-table-column>
+      <el-table-column prop="matchMode" label="比赛模式" width="150"></el-table-column>
+      <el-table-column label="结果" min-width="500px">
         <template #default="scope">
           <div class="layout-h">
             <div class="layout-h" :class="{
               'color-success': scope.row.winTeamIndex === 0,
               'color-danger':  scope.row.loseTeamIndex === 0
             }">
-              <span v-for="(item,index) in scope.row.team1" :key="index" >{{item.player}}</span>
+              {{formatTeamName2(scope.row.team1)}}
+              <!-- <span v-for="(item,index) in scope.row.team1" :key="index" >{{item.player}}</span> -->
             </div>
             <div class="score">
               <div>{{scope.row.scoreList}}</div>
@@ -58,7 +59,8 @@
               'color-success': scope.row.winTeamIndex === 1,
               'color-danger':  scope.row.loseTeamIndex === 1
             }">
-              <span v-for="(item,index) in scope.row.team2" :key="index" >{{item.player}}</span>
+              {{formatTeamName2(scope.row.team2)}}
+              <!-- <span v-for="(item,index) in scope.row.team2" :key="index" >{{item.player}}</span> -->
             </div>
           </div>
         </template>
@@ -166,6 +168,15 @@ const handleView = (matchId) => {
       matchId
     }
   })
+}
+const formatTeamName2 = (team) => {
+  return team.map((item) => {
+    return item.player
+  }).join(team.some((item) => {
+    return item.player.length > 1
+  })
+    ? '/'
+    : '')
 }
 </script>
 <style lang="less" scoped>

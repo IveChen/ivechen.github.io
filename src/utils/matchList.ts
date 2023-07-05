@@ -33,7 +33,7 @@ const handleMatchData = (match) => {
     return team.map((item) => {
       if (gamePlayerList[index].filter((player) => {
         return player === item.player
-      }).length === gameCount) {
+      }).length >= gameCount) {
         return item
       } else {
         return {

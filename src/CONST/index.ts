@@ -94,13 +94,13 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: 'Eddie',
-    nickName: '迪'
+    name: '刘神',
+    nickName: '刘'
   },
   {
     fullName: '??',
-    name: '法人',
-    nickName: '法'
+    name: '周神',
+    nickName: '鲷'
   },
   {
     fullName: '??',
@@ -119,13 +119,13 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: '刘神',
-    nickName: '刘'
+    name: 'Eddie',
+    nickName: '迪'
   },
   {
     fullName: '??',
-    name: '周神',
-    nickName: '鲷'
+    name: '法人',
+    nickName: '法'
   },
   {
     fullName: '??',
@@ -157,6 +157,11 @@ export const PlayerList = [
     name: '超管',
     nickName: '超管',
     infinite: true
+  },
+  {
+    fullName: '??',
+    name: '呆妹',
+    nickName: '呆'
   }
 ]
 

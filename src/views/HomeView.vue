@@ -4,7 +4,7 @@
     <div class="layout-fill container">
       <div class="gutter-v">
         <el-alert title="录入数据必然存在谬误和缺失，所以数据可作为参考，不能作为最终结论。感兴趣的比赛可前往b站/斗鱼scboy根据日期观看录像。" type="error"></el-alert>
-        <el-alert title="默认统计包含对黑，方便查看最新比赛情况，正赛统计数据您可在上方选择比赛类型进行筛选。非加赛阶段换人，此二人不统计胜负。~~数据更新至2023年7月13日(次日或周末更新)" type="error"></el-alert>
+        <el-alert title="默认统计包含对黑，方便查看最新比赛情况，正赛统计数据您可在上方选择比赛类型进行筛选。非加赛阶段换人，此二人不统计胜负。~~数据更新至2023年7月18日(次日或周末更新)" type="error"></el-alert>
       </div>
       <el-card  class="gutter-v">
         <el-row>

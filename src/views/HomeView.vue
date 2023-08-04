@@ -174,5 +174,21 @@ const handelGoHeroDetail = (name) => {
 <style lang="less" scoped>
 .container {
   overflow: auto;
+  :deep{
+    .el-card{
+      overflow: visible;
+    }
+    .el-table{
+      overflow: visible;
+    }
+    .el-table__header-wrapper{
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .el-table__body-wrapper{
+      z-index: 1;
+    }
+  }
 }
 </style>

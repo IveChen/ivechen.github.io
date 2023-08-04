@@ -13,7 +13,11 @@ const getTeammate = (playerList, player) => {
 }
 
 const checkPlayerIsValid = (player) => {
-  return IgnoreAnalysisPlayerList.indexOf(player) === -1 && player !== 'X' && player !== 'Y'
+  return (
+    IgnoreAnalysisPlayerList.indexOf(player) === -1 &&
+    player !== 'X' &&
+    player !== 'Y'
+  )
 }
 
 export const parseMatchList = (matchList) => {
@@ -36,12 +40,16 @@ export const parseMatchList = (matchList) => {
       const loseMatchTeamIndex = getOpponentTeamIndex(match.winTeamIndex)
       const winMatchTeam = match.realMatchTeamList[match.winTeamIndex]
       const loseMatchTeam = match.realMatchTeamList[loseMatchTeamIndex]
-      const winTeamPlayerList = winMatchTeam.map((item) => item.player).filter((item) => {
-        return checkPlayerIsValid(item.player)
-      })
-      const loseTeamPlayerList = loseMatchTeam.map((item) => item.player).filter((item) => {
-        return checkPlayerIsValid(item.player)
-      })
+      const winTeamPlayerList = winMatchTeam
+        .map((item) => item.player)
+        .filter((item) => {
+          return checkPlayerIsValid(item.player)
+        })
+      const loseTeamPlayerList = loseMatchTeam
+        .map((item) => item.player)
+        .filter((item) => {
+          return checkPlayerIsValid(item.player)
+        })
       winMatchTeam.forEach((item) => {
         if (!checkPlayerIsValid(item.player)) return
         const player = playerManagement.getPlayer(item.player)
@@ -103,23 +111,27 @@ export const parseMatchList = (matchList) => {
         const hero = heroManagement.getHero(item.hero)
         hero.loseGame(item.player, match, gameIndex)
       })
-      if (!locationMap[winGameTeam.location]) {
-        locationMap[winGameTeam.location] = {
-          location: winGameTeam.location,
-          count: 0,
-          winCount: 0
+      if (winGameTeam.location) {
+        if (!locationMap[winGameTeam.location]) {
+          locationMap[winGameTeam.location] = {
+            location: winGameTeam.location,
+            count: 0,
+            winCount: 0
+          }
         }
+        locationMap[winGameTeam.location].count += 1
+        locationMap[winGameTeam.location].winCount += 1
       }
-      locationMap[winGameTeam.location].count += 1
-      locationMap[winGameTeam.location].winCount += 1
-      if (!locationMap[loseGameTeam.location]) {
-        locationMap[loseGameTeam.location] = {
-          location: loseGameTeam.location,
-          count: 0,
-          winCount: 0
+      if (loseGameTeam.location) {
+        if (!locationMap[loseGameTeam.location]) {
+          locationMap[loseGameTeam.location] = {
+            location: loseGameTeam.location,
+            count: 0,
+            winCount: 0
+          }
         }
+        locationMap[loseGameTeam.location].count += 1
       }
-      locationMap[loseGameTeam.location].count += 1
     })
   })
   return {

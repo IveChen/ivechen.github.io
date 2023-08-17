@@ -24,5 +24,13 @@ export const shortcuts = [
       const end = new Date()
       return [start, end]
     }
+  },
+  {
+    text: '7.34',
+    value: () => {
+      const start = dayjs('2023-8-9')
+      const end = new Date()
+      return [start, end]
+    }
   }
 ]

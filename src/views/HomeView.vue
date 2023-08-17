@@ -12,7 +12,7 @@
             <el-statistic title="参赛人数" :value="playerList.length" />
           </el-col>
           <el-col :span="6">
-            <el-statistic :title="`上场英雄(总${HeroList.length})`" :value="heroList.length" />未上场英雄“陈”
+            <el-statistic :title="`上场英雄(总${HeroList.length})`" :value="heroList.length" />
           </el-col>
           <el-col :span="6">
             <el-statistic title="比赛次数" :value="matchCount" />

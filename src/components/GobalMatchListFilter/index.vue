@@ -40,7 +40,7 @@ const getFilterMatchList = () => {
         return false
       }
     }
-    if (state.form.matchType) {
+    if (state.form.matchType?.length) {
       if (state.form.matchType.indexOf(match.matchType) === -1) {
         return false
       }

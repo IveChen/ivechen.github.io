@@ -4,12 +4,14 @@ export const PlayerList = [
   {
     fullName: '孙一峰',
     name: '孙哥',
-    nickName: '孙'
+    nickName: '孙',
+    desc: '孙统帅'
   },
   {
     fullName: '黄旭东',
     name: '黄哥',
-    nickName: '黄'
+    nickName: '黄',
+    desc: '黄传奇'
   },
   {
     fullName: '胡翔',
@@ -162,6 +164,11 @@ export const PlayerList = [
     fullName: '??',
     name: '呆妹',
     nickName: '呆'
+  },
+  {
+    fullName: '??',
+    name: '小叶超牛',
+    nickName: '叶'
   }
 ]
 

@@ -76,13 +76,18 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '电棍',
+    nickName: '棍'
+  },
+  {
+    fullName: '??',
     name: '大妖精',
     nickName: '妖'
   },
   {
     fullName: '??',
-    name: 'dc老师',
-    nickName: '灿'
+    name: 'iG.CoffeeMS',
+    nickName: '咖'
   },
   {
     fullName: '??',
@@ -113,21 +118,6 @@ export const PlayerList = [
     fullName: '??',
     name: 'iG.XY',
     nickName: '鸟'
-  },
-  {
-    fullName: '??',
-    name: 'iG.CoffeeMS',
-    nickName: '咖'
-  },
-  {
-    fullName: '??',
-    name: 'Eddie',
-    nickName: '迪'
-  },
-  {
-    fullName: '??',
-    name: '法人',
-    nickName: '法'
   },
   {
     fullName: '??',
@@ -169,6 +159,21 @@ export const PlayerList = [
     fullName: '??',
     name: '小叶超牛',
     nickName: '叶'
+  },
+  {
+    fullName: '??',
+    name: 'Eddie',
+    nickName: '迪'
+  },
+  {
+    fullName: '??',
+    name: 'dc老师',
+    nickName: '灿'
+  },
+  {
+    fullName: '??',
+    name: '法人',
+    nickName: '法'
   }
 ]
 

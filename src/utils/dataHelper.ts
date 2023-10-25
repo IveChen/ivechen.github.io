@@ -23,7 +23,12 @@ const checkPlayerIsValid = (player) => {
 export const parseMatchList = (matchList) => {
   const playerManagement = new PlayerManagement()
   const heroManagement = new HeroManagement()
-  const locationMap = {}
+  const locationMap = {
+    天辉: 0,
+    夜魇: 0
+  }
+  let wcModelGameCount = 0
+  let bpFirstTeamWinCount = 0
   matchList.forEach((match) => {
     if (match.winTeamIndex === null) {
       // 平局
@@ -88,6 +93,12 @@ export const parseMatchList = (matchList) => {
       })
     }
     match.gameList.forEach((game, gameIndex) => {
+      if (match.matchMode === '队长模式') {
+        wcModelGameCount += 1
+        if (game.bpFirstTeamIndex === game.winTeamIndex) {
+          bpFirstTeamWinCount += 1
+        }
+      }
       const loseGameTeamIndex = getOpponentTeamIndex(game.winTeamIndex)
       const winGameTeam = game.teamList[game.winTeamIndex]
       const loseGameTeam = game.teamList[loseGameTeamIndex]
@@ -137,6 +148,8 @@ export const parseMatchList = (matchList) => {
   return {
     playerManagement,
     heroManagement,
-    locationMap
+    locationMap,
+    wcModelGameCount,
+    bpFirstTeamWinCount
   }
 }

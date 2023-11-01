@@ -8,7 +8,7 @@
           type="error"
         ></el-alert>
         <el-alert
-          title="默认统计包含对黑，方便查看最新比赛情况，正赛统计数据您可在上方选择比赛类型进行筛选。非加赛阶段换人，此二人不统计胜负。~~数据更新至2023年10月14日(次日或周末更新)"
+          title="默认统计包含对黑，方便查看最新比赛情况，正赛统计数据您可在上方选择比赛类型进行筛选。非加赛阶段换人，此二人不统计胜负。~~数据更新至2023年10月31日(次日或周末更新)"
           type="error"
         ></el-alert>
       </div>
@@ -106,9 +106,9 @@
       </el-card>
       <el-card header="英雄数据">
         <el-table :data="heroList" border stripe>
-          <el-table-column label="英雄" fixed="left">
+          <el-table-column label="英雄" fixed="left" width="200px">
             <template #default="scope">
-              <Hero :name="scope.row.name"></Hero>
+              <HeroAvatar :name="scope.row.name" :width="80" :height="60"></HeroAvatar>
             </template>
           </el-table-column>
           <el-table-column label="上场次数">
@@ -154,6 +154,7 @@ import { computed, reactive } from 'vue'
 import { parseMatchList } from '@/utils/dataHelper'
 import Percent from '@/components/Percent/index.vue'
 import Hero from '@/components/Hero/index.vue'
+import HeroAvatar from '@/components/HeroAvatar/index.vue'
 import HeroList from '@/CONST/hero'
 import GlobalMatchListFilter from '@/components/GobalMatchListFilter/index.vue'
 import dayjs from 'dayjs'

@@ -1,7 +1,7 @@
 <template>
   <a class="cursor hero-wrapper" :href="link" target="_blank
   " :title="hero.name_loc">
-    <img :src="avatar" :alt="name" width="50" height="40">
+    <img :src="avatar" :alt="name" :width="width" :height="height">
     <div class="hero-name">{{name}}</div>
   </a>
 </template>
@@ -13,6 +13,14 @@ const props = defineProps({
   name: {
     type: String,
     default: ''
+  },
+  width: {
+    type: Number,
+    default: 50
+  },
+  height: {
+    type: Number,
+    default: 40
   }
 })
 const hero = computed(() => {
@@ -31,7 +39,6 @@ const avatar = computed(() => {
 .hero-wrapper {
   img {
     display: block;
-    margin: 0 auto;
 
     object-fit: contain;
   }

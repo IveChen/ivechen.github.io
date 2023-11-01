@@ -63,10 +63,11 @@
           </el-descriptions>
         </el-card>
         <el-card :header="`英雄对局数据(共${heroList.length}个英雄)`" class="gutter-v">
-          <el-descriptions>
+          <el-descriptions :column='5'>
             <el-descriptions-item :label="item.hero" v-for="(item,index) in heroList" :key="index">
               <template #label>
-                <Hero :name="item.hero"></Hero>
+                <HeroAvatar :name="item.hero"></HeroAvatar>
+                <!-- <Hero :name="item.hero"></Hero> -->
               </template>
               <Percent :number1="item.winCount" :number2="item.count"></Percent>
             </el-descriptions-item>
@@ -140,6 +141,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { parseMatchList } from '@/utils/dataHelper'
 import Player from '@/components/Player/index.vue'
 import Percent from '@/components/Percent/index.vue'
+import HeroAvatar from '@/components/HeroAvatar/index.vue'
 import Hero from '@/components/Hero/index.vue'
 import GlobalMatchListFilter from '@/components/GobalMatchListFilter/index.vue'
 import { PlayerList } from '@/CONST'
@@ -271,6 +273,11 @@ const handleBack = () => {
 <style lang="less" scoped>
 .container {
   overflow: auto;
+  :deep{
+    .el-descriptions__label{
+      display: inline-block;
+    }
+  }
 }
 .filter-selected {
   :deep {

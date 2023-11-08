@@ -3,7 +3,6 @@ import dayjs from 'dayjs'
 import md5 from 'md5'
 
 const files = require.context('../dataSource', true, /\.json$/)
-
 const matchList = []
 
 const handleMatchData = (match) => {
@@ -48,7 +47,6 @@ const handleMatchData = (match) => {
   match.playOffGameCount = playOffGameCount
   return match
 }
-
 files.keys().forEach((key) => {
   const id = md5(key)
   const match = files(key)

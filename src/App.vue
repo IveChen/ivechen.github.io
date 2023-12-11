@@ -14,14 +14,22 @@
               </el-menu-item>
               <el-menu-item >
                 <router-link to="/hero" active-class="active">英雄维度</router-link></el-menu-item> -->
-              <el-menu-item >
-                <router-link to="/matchList" active-class="active">比赛数据</router-link></el-menu-item>
+              <el-menu-item>
+                <router-link to="/matchList" active-class="active"
+                  >比赛数据</router-link
+                >
+              </el-menu-item>
+              <el-menu-item>
+                <router-link to="/matchCompare" active-class="active"
+                  >年度数据</router-link
+                >
+              </el-menu-item>
             </el-menu>
           </div>
         </div>
       </el-header>
       <el-main class="layout-padding layout-fill">
-        <router-view/>
+        <router-view />
       </el-main>
     </el-container>
   </el-config-provider>
@@ -55,19 +63,19 @@ nav {
 </style>
 <style lang="less" scoped>
 .container {
-  .el-header{
+  .el-header {
     border-bottom: 1px solid #e1e1e1;
   }
-  :deep{
+  :deep {
     .el-menu--horizontal {
       border-bottom: 0 none;
     }
-    .router-link-exact-active{
+    .router-link-exact-active {
       color: blue;
     }
   }
 }
-.title{
+.title {
   font-weight: bold;
 }
 </style>

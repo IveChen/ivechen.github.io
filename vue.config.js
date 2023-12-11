@@ -4,10 +4,7 @@ module.exports = defineConfig({
   outputDir: 'docs',
   devServer: {
     client: {
-      overlay: {
-        warnings: false,
-        errors: false
-      }
+      overlay: false
     }
   }
 })

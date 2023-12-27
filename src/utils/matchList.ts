@@ -55,9 +55,9 @@ files.keys().forEach((key) => {
   matchList.push(match)
 })
 // 日期从小到大排列
-matchList.sort((a, b) => {
-  return dayjs(a.matchDate) > dayjs(b.matchDate) ? 1 : -1
-})
+// matchList.sort((a, b) => {
+//   return dayjs(a.matchDate) > dayjs(b.matchDate) ? 1 : -1
+// })
 export default () => {
   // 深复制，防止修改
   return JSON.parse(JSON.stringify(matchList))

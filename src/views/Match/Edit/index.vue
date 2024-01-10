@@ -104,6 +104,10 @@
             </el-select>
             <el-select :placeholder="`选择英雄`" v-model="hitem.hero" filterable>
               <el-option v-for="(item,index) in HeroList" :key="index" :label="item.name_loc" :value="item.name_loc">
+                <div class="layout-h">
+                  <HeroAvatar :name="item.name_loc" tag="div" class="layout-h gutter-h" :showName="false"></HeroAvatar>
+                  {{ item.name_loc }}
+                </div>
               </el-option>
             </el-select>
           </el-form-item>
@@ -135,6 +139,7 @@ import getMatchList from '@/utils/matchList'
 import { useRoute } from 'vue-router'
 import FileSaver from 'file-saver'
 import { getOpponentTeamIndex } from '@/utils/index'
+import HeroAvatar from '@/components/HeroAvatar/index.vue'
 
 const getDefaultTeamList = () => {
   return Array.from({ length: 2 }, () => {

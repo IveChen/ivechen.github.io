@@ -141,8 +141,13 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: 'Fotros',
-    nickName: 'Fotros'
+    name: 'SortOf',
+    nickName: 'SortOf'
+  },
+  {
+    fullName: '??',
+    name: 'Lambo',
+    nickName: 'Lambo'
   },
   {
     fullName: '??',

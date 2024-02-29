@@ -179,6 +179,26 @@ export const PlayerList = [
     fullName: '??',
     name: '法人',
     nickName: '法'
+  },
+  {
+    fullName: '??',
+    name: '夕媛',
+    nickName: '夕媛'
+  },
+  {
+    fullName: '??',
+    name: '小涵涵',
+    nickName: '小涵涵'
+  },
+  {
+    fullName: '??',
+    name: '徐杰',
+    nickName: '徐杰'
+  },
+  {
+    fullName: '??',
+    name: '艾琳',
+    nickName: '艾琳'
   }
 ]
 
@@ -215,7 +235,7 @@ export const PlayerOrderListForAnalysis = [
   '固定'
 ]
 // 比赛类型
-export const MatchTypeList = ['TICU正赛', '对黑', 'DLC', '国际TICU']
+export const MatchTypeList = ['TICU正赛', '对黑', 'DLC', '国际TICU', '其他']
 // 比赛模式
 export const MatchModeList = [
   '队长模式',

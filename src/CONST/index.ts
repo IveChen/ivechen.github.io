@@ -182,6 +182,11 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '柳皇',
+    nickName: '柳'
+  },
+  {
+    fullName: '??',
     name: '夕媛',
     nickName: '夕媛'
   },

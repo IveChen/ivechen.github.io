@@ -10,6 +10,7 @@ const handleMatchData = (match) => {
   let playOffGameCount = 0
   const gamePlayerList = [[], []]
   const playOffGamePlayerList = [[], []]
+  const allGamePlayerList = []
   match.gameList.forEach((game) => {
     game.teamList.forEach((team, teamIndex) => {
       team.heroList.forEach((item) => {
@@ -18,6 +19,9 @@ const handleMatchData = (match) => {
         }
         if (game.gameType === '加赛') {
           playOffGamePlayerList[teamIndex].push(item.player)
+        }
+        if(!allGamePlayerList.includes(item.player)){
+          allGamePlayerList.push(item.player)
         }
       })
     })
@@ -43,6 +47,8 @@ const handleMatchData = (match) => {
       }
     })
   })
+  match.allGamePlayerList = allGamePlayerList
+  match.hasExchange = allGamePlayerList.length > 10
   match.gameCount = gameCount
   match.playOffGameCount = playOffGameCount
   return match

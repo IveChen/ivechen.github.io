@@ -2,12 +2,14 @@
   <div class="layout-v layout-full">
     <el-form inline>
       <el-form-item>
-        <el-date-picker :disabled-date="disabledDate" :shortcuts="shortcuts" start-placeholder="开始时间" end-placeholder="结束时间" type="daterange" v-model="state.form.date" clearable></el-date-picker>
+        <el-date-picker :disabled-date="disabledDate" :shortcuts="shortcuts" start-placeholder="开始时间"
+          end-placeholder="结束时间" type="daterange" v-model="state.form.date" clearable></el-date-picker>
       </el-form-item>
       <el-form-item label="包括">
         <el-select placeholder="包括该人员" v-model="state.form.includePlayer" clearable filterable>
-          <el-option v-for="(item,index) in PlayerList" :key="index" :label="`${item.nickName}(${item.name})`" :value="item.nickName">
-            {{item.nickName}}({{item.name}})
+          <el-option v-for="(item, index) in PlayerList" :key="index" :label="`${item.nickName}(${item.name})`"
+            :value="item.nickName">
+            {{ item.nickName }}({{ item.name }})
           </el-option>
         </el-select>
       </el-form-item>
@@ -20,14 +22,15 @@
       </el-form-item> -->
       <el-form-item>
         <el-select placeholder="包括该英雄" v-model="state.form.hero" clearable filterable>
-          <el-option v-for="(item,index) in HeroList" :key="index" :label="`${item.name_loc}(${item.name_english_loc})`" :value="item.name_loc">
-            {{item.name_loc}}({{item.name_english_loc}})
+          <el-option v-for="(item, index) in HeroList" :key="index" :label="`${item.name_loc}(${item.name_english_loc})`"
+            :value="item.name_loc">
+            {{ item.name_loc }}({{ item.name_english_loc }})
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
         <el-select placeholder="选择比赛类型" v-model="state.form.matchType" clearable>
-          <el-option v-for="(item,index) in MatchTypeList" :key="index" :label="item" :value="item">
+          <el-option v-for="(item, index) in MatchTypeList" :key="index" :label="item" :value="item">
           </el-option>
         </el-select>
       </el-form-item>
@@ -35,37 +38,44 @@
         <el-button @click="handleAdd" type="danger">配置比赛</el-button>
       </el-form-item> -->
     </el-form>
-    <div class="gutter-v">共计{{dataSource.length}}场比赛</div>
+    <div class="gutter-v">共计{{ dataSource.length }}场比赛</div>
     <el-table :data="dataSource" border stripe>
       <el-table-column type="index" width="50" />
-      <el-table-column prop="matchDate" label="比赛时间" width="150"></el-table-column>
+      <el-table-column prop="matchDate" label="比赛时间" width="150">
+        <template #default="scope">
+          {{ scope.row.matchDate }}
+          <div v-if="scope.row.hasExchange" class="exchange-tip">(该比赛存在换人)</div>
+        </template>
+      </el-table-column>
       <el-table-column prop="matchType" label="比赛类型" width="150"></el-table-column>
       <el-table-column prop="matchMode" label="比赛模式" width="150"></el-table-column>
-      <el-table-column label="结果" min-width="500px">
+      <el-table-column prop="matchMemberBPMode" label="选人模式" width="150"></el-table-column>
+      <el-table-column label="比赛结果" min-width="500px">
         <template #default="scope">
           <div class="layout-h">
             <div class="layout-h" :class="{
-              'color-success': scope.row.winTeamIndex === 0,
-              'color-danger':  scope.row.loseTeamIndex === 0
-            }">
-              {{formatTeamName2(scope.row.team1)}}
+          'color-success': scope.row.winTeamIndex === 0,
+          'color-danger': scope.row.loseTeamIndex === 0
+        }">
+              {{ formatTeamName2(scope.row.team1) }}
               <!-- <span v-for="(item,index) in scope.row.team1" :key="index" >{{item.player}}</span> -->
             </div>
             <div class="score">
-              <div>{{scope.row.scoreList}}</div>
-              <div v-if="scope.row.playOffScoreList" class="play-off-score">{{scope.row.playOffScoreList}}</div>
+              <div>{{ scope.row.scoreList }}</div>
+              <div v-if="scope.row.playOffScoreList" class="play-off-score">{{ scope.row.playOffScoreList }}</div>
             </div>
-            <div class="layout-h"  :class="{
-              'color-success': scope.row.winTeamIndex === 1,
-              'color-danger':  scope.row.loseTeamIndex === 1
-            }">
-              {{formatTeamName2(scope.row.team2)}}
+            <div class="layout-h" :class="{
+          'color-success': scope.row.winTeamIndex === 1,
+          'color-danger': scope.row.loseTeamIndex === 1
+        }">
+              {{ formatTeamName2(scope.row.team2) }}
               <!-- <span v-for="(item,index) in scope.row.team2" :key="index" >{{item.player}}</span> -->
             </div>
           </div>
         </template>
       </el-table-column>
       <el-table-column label="操作">
+
         <template #default="scope">
           <el-button type="text" @click="handleView(scope.row.id)">查看</el-button>
         </template>
@@ -107,16 +117,16 @@ const dataSource = computed(() => {
       }
     }
     if (state.form.includePlayer) {
-      const isValid = match.matchTeamList.flat().find((item) => {
-        return item.player === state.form.includePlayer
+      const isValid = match.allGamePlayerList.find((item) => {
+        return item === state.form.includePlayer
       })
       if (!isValid) {
         return false
       }
     }
     if (state.form.excludePlayer) {
-      const isValid = match.matchTeamList.flat().find((item) => {
-        return item.player === state.form.excludePlayer
+      const isValid = match.allGamePlayerList.find((item) => {
+        return item === state.form.excludePlayer
       })
       if (isValid) {
         return false
@@ -179,11 +189,14 @@ const formatTeamName2 = (team) => {
     : '')
 }
 </script>
+
 <style lang="less" scoped>
 .score {
   margin: 0 40px;
+
   .play-off-score {
     position: relative;
+
     &::after {
       content: '( 加赛 )';
       position: absolute;
@@ -192,5 +205,10 @@ const formatTeamName2 = (team) => {
       white-space: nowrap;
     }
   }
+}
+
+.exchange-tip {
+  color: #999;
+  font-size: 12px;
 }
 </style>

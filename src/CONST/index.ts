@@ -121,6 +121,26 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '肾亏',
+    nickName: '亏'
+  },
+  {
+    fullName: '??',
+    name: '胖神',
+    nickName: '胖'
+  },
+  {
+    fullName: '邹丰俊',
+    name: '韭菜',
+    nickName: '韭'
+  },
+  {
+    fullName: '??',
+    name: 'Q酱',
+    nickName: 'Q'
+  },
+  {
+    fullName: '??',
     name: 'Scarlett',
     nickName: 'Scarlett'
   },
@@ -153,6 +173,18 @@ export const PlayerList = [
     fullName: '??',
     name: '超管',
     nickName: '超管',
+    infinite: true
+  },
+  {
+    fullName: '??',
+    name: '水友',
+    nickName: '水友',
+    infinite: true
+  },
+  {
+    fullName: '??',
+    name: '教授',
+    nickName: '教授',
     infinite: true
   },
   {
@@ -204,14 +236,19 @@ export const PlayerList = [
     fullName: '??',
     name: '艾琳',
     nickName: '艾琳'
+  },
+  {
+    fullName: '??',
+    name: 'Zard',
+    nickName: 'Zard'
   }
 ]
 
-export const IgnoreAnalysisPlayerList = ['超管', 'X', 'Y']
+export const IgnoreAnalysisPlayerList = ['超管', '水友', 'X', 'Y', '教授']
 export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷']
 
 // 选人模式 定员指跟队长一边
-export const BPPlayerModeList = ['全部选马', '部定部选', '全部定员']
+export const BPPlayerModeList = ['选马模式', '限人选马', '固定人员', '丢人模式']
 // 选人顺序列表
 export const PlayerOrderList = [
   '固定',
@@ -240,7 +277,7 @@ export const PlayerOrderListForAnalysis = [
   '固定'
 ]
 // 比赛类型
-export const MatchTypeList = ['TICU正赛', '对黑', 'DLC', '国际TICU', '其他']
+export const MatchTypeList = ['TICU正赛', '对黑', 'DLC', '国际TICU', '其他', '水友赛']
 // 比赛模式
 export const MatchModeList = [
   '队长模式',

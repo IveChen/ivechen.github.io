@@ -1,7 +1,7 @@
 {
   "matchDate": "2023-01-09",
   "matchType": "TICU正赛",
-  "matchMemberBPMode": "全部定员",
+  "matchMemberBPMode": "固定人员",
   "matchMode": "队长模式",
   "matchTeamList": [
     [

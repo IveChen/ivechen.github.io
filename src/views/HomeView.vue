@@ -194,9 +194,11 @@ const playerList = computed(() => {
 })
 const heroList = computed(() => {
   const { heroManagement } = parsedData.value
-  return heroManagement.heroList.sort((a, b) => {
+  heroManagement.heroList.sort((a, b) => {
     return a.count < b.count ? 1 : -1
   })
+  console.log(heroManagement.heroList)
+  return heroManagement.heroList
 })
 const locationList = computed(() => {
   const { locationMap } = parsedData.value

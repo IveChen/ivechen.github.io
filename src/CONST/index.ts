@@ -171,6 +171,11 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: 'Clem',
+    nickName: 'Clem'
+  },
+  {
+    fullName: '??',
     name: '超管',
     nickName: '超管',
     infinite: true

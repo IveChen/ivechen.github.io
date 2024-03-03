@@ -241,6 +241,16 @@ export const PlayerList = [
     fullName: '??',
     name: 'Zard',
     nickName: 'Zard'
+  },
+  {
+    fullName: '??',
+    name: '大小姐',
+    nickName: 'Zeta'
+  },
+  {
+    fullName: '??',
+    name: 'Yuno',
+    nickName: 'Yuno'
   }
 ]
 

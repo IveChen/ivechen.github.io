@@ -5,19 +5,19 @@ export const PlayerList = [
     fullName: '孙一峰',
     name: '孙哥',
     nickName: '孙',
-    desc: '孙统帅'
+    desc: '孙传奇(国)'
   },
   {
     fullName: '黄旭东',
     name: '黄哥',
     nickName: '黄',
-    desc: '黄传奇'
+    desc: '黄传奇(东南亚)'
   },
   {
     fullName: '胡翔',
     name: '胡淳鹅Sed',
     nickName: '鹅',
-    desc: 'TICU的A!M!E!!!'
+    desc: '七成A!M!E!!!'
   },
   {
     fullName: '??',

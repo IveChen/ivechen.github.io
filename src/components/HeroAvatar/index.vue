@@ -7,7 +7,7 @@
   "
     :title="hero.name_loc"
   >
-    <img :src="avatar" :alt="name" :width="width" :height="height" />
+    <img v-lazy="avatar" :alt="name" :width="width" :height="height" />
     <div class="hero-name" v-if="showName">{{ name }}</div>
   </component>
 </template>

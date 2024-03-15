@@ -176,24 +176,6 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: '超管',
-    nickName: '超管',
-    infinite: true
-  },
-  {
-    fullName: '??',
-    name: '水友',
-    nickName: '水友',
-    infinite: true
-  },
-  {
-    fullName: '??',
-    name: '教授',
-    nickName: '教授',
-    infinite: true
-  },
-  {
-    fullName: '??',
     name: '呆妹',
     nickName: '呆'
   },
@@ -256,6 +238,36 @@ export const PlayerList = [
     fullName: '??',
     name: 'Yuno',
     nickName: 'Yuno'
+  },
+  {
+    fullName: '??',
+    name: '超管',
+    nickName: '超管',
+    infinite: true
+  },
+  {
+    fullName: '??',
+    name: '水友',
+    nickName: '水友',
+    infinite: true
+  },
+  {
+    fullName: '??',
+    name: '教授',
+    nickName: '教授',
+    infinite: true
+  },
+  {
+    fullName: '??',
+    name: '炉石',
+    nickName: '炉石',
+    infinite: true
+  },
+  {
+    fullName: '??',
+    name: '魔兽',
+    nickName: '魔兽',
+    infinite: true
   }
 ]
 

@@ -1,0 +1,84 @@
+{
+  "matchDate": "2022-12-05",
+  "matchRemark": "",
+  "matchType": "其他",
+  "matchMemberBPMode": "固定人员",
+  "matchMode": "队长模式",
+  "matchTeamList": [
+    [
+      { "player": "孙", "order": "固定" },
+      { "player": "黄", "order": "固定" },
+      { "player": "鹅", "order": "固定" },
+      { "player": "咖", "order": "固定" },
+      { "player": "王", "order": "固定" }
+    ],
+    [
+      { "player": "驴", "order": "固定" },
+      { "player": "钱", "order": "固定" },
+      { "player": "炉石", "order": "固定" },
+      { "player": "炉石", "order": "固定" },
+      { "player": "炉石", "order": "固定" }
+    ]
+  ],
+  "gameList": [
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 1,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [],
+      "teamList": [
+        {
+          "location": "天辉",
+          "heroList": [
+            { "player": "孙", "hero": "森海飞霞" },
+            { "player": "黄", "hero": "食人魔魔法师" },
+            { "player": "鹅", "hero": "卓尔游侠" },
+            { "player": "咖", "hero": "莉娜" },
+            { "player": "王", "hero": "破晓辰星" }
+          ]
+        },
+        {
+          "location": "夜魇",
+          "heroList": [
+            { "player": "驴", "hero": "主宰" },
+            { "player": "钱", "hero": "暗夜魔王" },
+            { "player": "炉石", "hero": "拉席克" },
+            { "player": "炉石", "hero": "巫妖" },
+            { "player": "炉石", "hero": "沉默术士" }
+          ]
+        }
+      ]
+    },
+    {
+      "gameType": "正常对局",
+      "winTeamIndex": 0,
+      "bpFirstTeamIndex": 0,
+      "bpHeroQueue": [],
+      "teamList": [
+        {
+          "location": "夜魇",
+          "heroList": [
+            { "player": "孙", "hero": "杰奇洛" },
+            { "player": "黄", "hero": "冥界亚龙" },
+            { "player": "鹅", "hero": "幻影刺客" },
+            { "player": "咖", "hero": "影魔" },
+            { "player": "钱", "hero": "沉默术士" }
+          ]
+        },
+        {
+          "location": "天辉",
+          "heroList": [
+            { "player": "驴", "hero": "巨魔战将" },
+            { "player": "钱", "hero": "末日使者" },
+            { "player": "炉石", "hero": "狙击手" },
+            { "player": "炉石", "hero": "巫妖" },
+            { "player": "炉石", "hero": "水晶室女" }
+          ]
+        }
+      ]
+    }
+  ],
+  "scoreList": [1, 1],
+  "playOffScoreList": [0, 0],
+  "winTeamIndex": null
+}

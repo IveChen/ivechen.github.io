@@ -271,7 +271,7 @@ export const PlayerList = [
   }
 ]
 
-export const IgnoreAnalysisPlayerList = ['超管', '水友', 'X', 'Y', '教授']
+export const IgnoreAnalysisPlayerList = ['超管', '水友', 'X', 'Y', '教授', '炉石', '魔兽']
 export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷']
 
 // 选人模式 定员指跟队长一边

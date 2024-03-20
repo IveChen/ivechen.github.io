@@ -5,13 +5,13 @@ export const PlayerList = [
     fullName: '孙一峰',
     name: '孙哥',
     nickName: '孙',
-    desc: '孙传奇(国)'
+    desc: '孙传奇'
   },
   {
     fullName: '黄旭东',
     name: '黄哥',
     nickName: '黄',
-    desc: '黄传奇(东南亚)'
+    desc: '黄传奇'
   },
   {
     fullName: '胡翔',
@@ -71,18 +71,13 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '金贝贝',
+    nickName: '贝'
+  },
+  {
+    fullName: '??',
     name: '马',
     nickName: '仔'
-  },
-  {
-    fullName: '??',
-    name: '电棍',
-    nickName: '棍'
-  },
-  {
-    fullName: '??',
-    name: '大妖精',
-    nickName: '妖'
   },
   {
     fullName: '??',
@@ -111,6 +106,11 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '大妖精',
+    nickName: '妖'
+  },
+  {
+    fullName: '??',
     name: '惑小莎',
     nickName: '惑'
   },
@@ -123,6 +123,21 @@ export const PlayerList = [
     fullName: '??',
     name: '肾亏',
     nickName: '亏'
+  },
+  {
+    fullName: '??',
+    name: '法人',
+    nickName: '法'
+  },
+  {
+    fullName: '??',
+    name: '柳皇',
+    nickName: '柳'
+  },
+  {
+    fullName: '??',
+    name: '电棍',
+    nickName: '棍'
   },
   {
     fullName: '??',
@@ -176,16 +191,6 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: '呆妹',
-    nickName: '呆'
-  },
-  {
-    fullName: '??',
-    name: '小叶超牛',
-    nickName: '叶'
-  },
-  {
-    fullName: '??',
     name: 'Eddie',
     nickName: '迪'
   },
@@ -196,13 +201,13 @@ export const PlayerList = [
   },
   {
     fullName: '??',
-    name: '法人',
-    nickName: '法'
+    name: '呆妹',
+    nickName: '呆'
   },
   {
     fullName: '??',
-    name: '柳皇',
-    nickName: '柳'
+    name: '小叶超牛',
+    nickName: '叶'
   },
   {
     fullName: '??',

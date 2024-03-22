@@ -18,19 +18,19 @@ export const shortcuts = [
     }
   },
   {
-    text: '7.33',
+    text: '7.33以后',
     value: () => {
       const start = dayjs('2023-4-21')
       const end = new Date()
       return [start, end]
     }
-  },
-  {
-    text: '7.34',
-    value: () => {
-      const start = dayjs('2023-8-9')
-      const end = new Date()
-      return [start, end]
-    }
   }
+  // {
+  //   text: '7.34',
+  //   value: () => {
+  //     const start = dayjs('2023-8-9')
+  //     const end = new Date()
+  //     return [start, end]
+  //   }
+  // }
 ]

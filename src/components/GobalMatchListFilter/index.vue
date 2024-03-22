@@ -24,8 +24,7 @@
           :key="index"
           :label="item"
           :value="item"
-        >
-        </el-option>
+        ></el-option>
       </el-select>
     </el-form-item>
     <el-form-item label="不包括">
@@ -72,7 +71,7 @@ const disabledDate = (v) => {
 
 const getFilterMatchList = () => {
   return getMatchList().filter((match) => {
-    if (state.form.date && props.hasTimeRange) {
+    if (state.form.date && state.form.date.length && props.hasTimeRange) {
       const isValid =
         dayjs(match.matchDate) >= dayjs(state.form.date[0]) &&
         dayjs(match.matchDate) <= dayjs(state.form.date[1])

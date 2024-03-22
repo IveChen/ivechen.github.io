@@ -65,16 +65,16 @@ const state = reactive({
   selectedPlayer: ['孙', '黄'],
   tableData: [
     {
-      itemName: '比赛场次',
-      prop: 'matchCount'
-    },
-    {
       itemName: '比赛胜率',
       prop: 'rate'
     },
     {
       itemName: '比赛胜场',
       prop: 'matchWinCount'
+    },
+    {
+      itemName: '比赛场次',
+      prop: 'matchCount'
     },
     {
       itemName: '最长连胜',
@@ -103,11 +103,9 @@ const parseYearlyData = () => {
       return item.matchDate.indexOf(i) > -1
     })
     yearlyData[i] = parseMatchList(yearlyMatch)
-    // yearlyData[i] = parseMatchList()
   }
   state.yearList = yearList
   state.yearlyData = yearlyData
-  console.log(state.yearlyData)
 }
 
 const handleSubmit = (matchList) => {

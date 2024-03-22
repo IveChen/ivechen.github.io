@@ -27,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Match/Compare/index.vue')
   },
   {
+    path: '/matchVersus',
+    name: 'matchVersus',
+    component: () => import('../views/Match/Versus/index.vue')
+  },
+  {
     path: '/playerDetail',
     name: 'playerDetail',
     component: () => import('../views/Player/Detail/index.vue')

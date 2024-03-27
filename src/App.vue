@@ -26,7 +26,7 @@
               </el-menu-item>
               <!-- <el-menu-item>
                 <router-link to="/matchVersus" active-class="active"
-                  >对抗数据</router-link
+                  >对阵数据</router-link
                 >
               </el-menu-item> -->
             </el-menu>

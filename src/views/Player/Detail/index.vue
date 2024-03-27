@@ -63,7 +63,7 @@
           </el-descriptions>
         </el-card>
         <el-card :header="`英雄对局数据(共${heroList.length}个英雄)`" class="gutter-v">
-          <el-descriptions :column='5'>
+          <el-descriptions :column='5' class="hero-desc-list">
             <el-descriptions-item :label="item.hero" v-for="(item,index) in heroList" :key="index">
               <template #label>
                 <HeroAvatar :name="item.hero"></HeroAvatar>
@@ -177,6 +177,7 @@ const player = computed(() => {
   const { playerManagement } = parsedData.value
   return playerManagement.getPlayer(nickName)
 })
+console.log(player)
 const orderList = computed(() => {
   const list = player.value.orderList
   return list.sort((a, b) => {
@@ -283,6 +284,13 @@ const handleBack = () => {
   :deep {
     .el-select {
       width: 100%;
+    }
+  }
+}
+.hero-desc-list{
+  :deep{
+    .el-descriptions__content{
+      display: inline-block;
     }
   }
 }

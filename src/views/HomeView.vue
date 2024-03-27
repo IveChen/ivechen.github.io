@@ -8,7 +8,7 @@
           type="error"
         ></el-alert>
         <el-alert
-          title="为方便查看最新比赛情况，默认比赛类型为对黑和正赛，其他类型数据您可在上方选择比赛类型进行筛选。非加赛阶段换人，此二人不统计胜负。~~数据更新至2024年03月26日(次日或周末更新)"
+          title="为方便查看最新比赛情况，默认比赛类型为对黑和正赛。其他类型数据您可在上方选择比赛类型进行筛选。非加赛阶段换人，此二人不统计胜负。~~数据更新至2024年03月26日(次日或周末更新)"
           type="error"
         ></el-alert>
       </div>
@@ -34,7 +34,10 @@
             <el-statistic title="对局次数" :value="gameCount" />
           </el-col>
           <el-col :span="6" v-for="(item, index) in locationList" :key="index">
-            <el-statistic :title="`${item.location}获胜`" :value="item.winCount" />
+            <el-statistic
+              :title="`${item.location}获胜`"
+              :value="item.winCount"
+            />
           </el-col>
           <el-col :span="6">
             <el-statistic title="先BAN获胜对局/总BP对局" class="ban-count">
@@ -50,8 +53,11 @@
       </el-card>
       <el-card header="人员数据" class="gutter-v">
         <el-table :data="playerList">
-          <el-table-column label="名字" prop="nickName" fixed="left">
-          </el-table-column>
+          <el-table-column
+            label="名字"
+            prop="nickName"
+            fixed="left"
+          ></el-table-column>
           <el-table-column label="参赛次数" prop="matchCount" sortable>
             <template #default="scope">
               <Percent
@@ -76,10 +82,16 @@
               ></Percent>
             </template>
           </el-table-column>
-          <el-table-column label="最长连胜" prop="maxMatchWinCount" sortable>
-          </el-table-column>
-          <el-table-column label="最长连败" prop="maxMatchLoseCount" sortable>
-          </el-table-column>
+          <el-table-column
+            label="最长连胜"
+            prop="maxMatchWinCount"
+            sortable
+          ></el-table-column>
+          <el-table-column
+            label="最长连败"
+            prop="maxMatchLoseCount"
+            sortable
+          ></el-table-column>
           <el-table-column label="当前状态" sortable prop="matchFormCount">
             <template #default="scope">
               <div v-if="scope.row.matchFormCount > 0" class="color-success">
@@ -91,15 +103,18 @@
               </div>
             </template>
           </el-table-column>
-          <el-table-column label="最后参赛时间" prop="lastMatchDate">
-          </el-table-column>
+          <el-table-column
+            label="最后参赛时间"
+            prop="lastMatchDate"
+          ></el-table-column>
           <el-table-column label="" width="80px">
             <template #default="scope">
               <el-button
                 type="text"
                 @click="handelGoPlayerDetail(scope.row.nickName)"
-                >查看</el-button
               >
+                查看
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -108,7 +123,11 @@
         <el-table :data="heroList" border stripe>
           <el-table-column label="英雄" fixed="left" width="200px">
             <template #default="scope">
-              <HeroAvatar :name="scope.row.name" :width="80" :height="60"></HeroAvatar>
+              <HeroAvatar
+                :name="scope.row.name"
+                :width="80"
+                :height="60"
+              ></HeroAvatar>
             </template>
           </el-table-column>
           <el-table-column label="上场次数">
@@ -126,8 +145,8 @@
                 v-for="(item, index) in scope.row.playerList"
                 :key="index"
               >
-                <span class="gutter-h">{{ item.player }}</span
-                ><Percent
+                <span class="gutter-h">{{ item.player }}</span>
+                <Percent
                   :number1="item.winCount"
                   :number2="item.count"
                 ></Percent>
@@ -136,9 +155,12 @@
           </el-table-column>
           <el-table-column label="" width="80px">
             <template #default="scope">
-              <el-button type="text" @click="handelGoHeroDetail(scope.row.name)"
-                >查看</el-button
+              <el-button
+                type="text"
+                @click="handelGoHeroDetail(scope.row.name)"
               >
+                查看
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -195,7 +217,13 @@ const playerList = computed(() => {
 const heroList = computed(() => {
   const { heroManagement } = parsedData.value
   return heroManagement.heroList.sort((a, b) => {
-    return a.count < b.count ? 1 : -1
+    if (a.count < b.count) {
+      return 1
+    } else if (a.count === b.count) {
+      return a.winCount < b.winCount ? 1 : -1
+    } else {
+      return -1
+    }
   })
 })
 const locationList = computed(() => {
@@ -241,9 +269,9 @@ const handelGoHeroDetail = (name) => {
     }
   }
 }
-.ban-count{
-  :deep{
-    .el-statistic__number{
+.ban-count {
+  :deep {
+    .el-statistic__number {
       display: none;
     }
   }

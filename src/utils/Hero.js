@@ -11,7 +11,13 @@ export class Hero {
   // 使用的人员列表
   get playerList () {
     return Object.values(this.playerMap).sort((a, b) => {
-      return a.count < b.count ? 1 : -1
+      if (a.count < b.count) {
+        return 1
+      } else if (a.count === b.count) {
+        return a.winCount <= b.winCount ? 1 : -1
+      } else {
+        return -1
+      }
     })
   }
 

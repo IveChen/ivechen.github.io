@@ -81,6 +81,11 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '皮卡丘',
+    nickName: '皮'
+  },
+  {
+    fullName: '??',
     name: 'iG.CoffeeMS',
     nickName: '咖'
   },

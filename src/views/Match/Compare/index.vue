@@ -1,7 +1,9 @@
 <template>
   <div class="layout-full layout-v container">
-    <GlobalMatchListFilter @submit="handleSubmit" :hasTimeRange="false">
-    </GlobalMatchListFilter>
+    <GlobalMatchListFilter
+      @submit="handleSubmit"
+      :hasTimeRange="false"
+    ></GlobalMatchListFilter>
     <div class="player-selector">
       <el-form>
         <el-form-item label="选择展示参赛选手">
@@ -40,7 +42,23 @@
             align="center"
           >
             <template #default="scope">
-              {{ getColumnData(nickName, yearItem, scope.row.prop) }}
+              <template v-if="scope.row.prop === 'headFiveHero'">
+                <div v-for="(item,index) in getColumnData(nickName, yearItem, scope.row.prop)" :key="index" class="head-five-hero-item">
+                  <HeroAvatar
+                    :name="item.hero"
+                    :showName="false"
+                    :width="60"
+                    :height="45"
+                  ></HeroAvatar>
+                  <Percent
+                    :number1="item.winCount"
+                    :number2="item.count"
+                  ></Percent>
+                </div>
+              </template>
+              <template v-else>
+                {{ getColumnData(nickName, yearItem, scope.row.prop) }}
+              </template>
             </template>
           </el-table-column>
         </el-table-column>
@@ -57,6 +75,8 @@ import { parseMatchList } from '@/utils/dataHelper'
 import GlobalMatchListFilter from '@/components/GobalMatchListFilter/index.vue'
 import { PlayerList } from '@/CONST'
 import dayjs from 'dayjs'
+import Percent from '@/components/Percent/index.vue'
+import HeroAvatar from '@/components/HeroAvatar/index.vue'
 
 const state = reactive({
   matchList: [],
@@ -152,12 +172,13 @@ const getColumnData = (nickName, year, field) => {
         })
         return heroList
           .slice(0, 5)
-          .map((item, index) => {
-            return `${item.hero} - ${item.winCount}/${
-              item.count
-            }(${percent(item.winCount, item.count)}%)`
-          })
-          .join('\n')
+          // .map((item, index) => {
+          //   return `${item.hero} - ${item.winCount}/${item.count}(${percent(
+          //     item.winCount,
+          //     item.count
+          //   )}%)`
+          // })
+          // .join('\n')
       }
     }
   }
@@ -177,6 +198,15 @@ const getColumnData = (nickName, year, field) => {
   :deep {
     .cell {
       white-space: pre-line;
+    }
+  }
+}
+.head-five-hero-item{
+  display: flex;
+  align-items: center;
+  :deep{
+    .percent-wrapper{
+      margin-left: 5px;
     }
   }
 }

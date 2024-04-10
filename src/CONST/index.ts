@@ -116,6 +116,21 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: '华子',
+    nickName: '华'
+  },
+  {
+    fullName: '??',
+    name: '九朵',
+    nickName: '九'
+  },
+  {
+    fullName: '??',
+    name: 'Tuteli',
+    nickName: '图'
+  },
+  {
+    fullName: '??',
     name: '惑小莎',
     nickName: '惑'
   },

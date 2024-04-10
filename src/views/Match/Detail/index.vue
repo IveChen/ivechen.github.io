@@ -8,7 +8,7 @@
       </el-page-header>
     </div>
     <div class="gutter-v">
-      <el-alert type="error" title="加赛不会影响结果。选马方式中，固定人员指人员分队是事先确定的，选马模式指人员通过队长选取。限人选马指部分人员商定必须在同一支队伍"></el-alert>
+      <el-alert type="error" title="加赛不会影响结果。选人模式中，固定人员指人员分队是事先确定的，选马模式指人员通过队长选取。限人选马指部分人员商定必须在同一支队伍.丢人模式指先帮对方选人。"></el-alert>
     </div>
     <el-card header="基础信息" class="gutter-v">
       <el-descriptions column="4">

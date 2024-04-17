@@ -293,6 +293,12 @@ export const PlayerList = [
     name: '魔兽',
     nickName: '魔兽',
     infinite: true
+  },
+  {
+    fullName: '??',
+    name: '守望',
+    nickName: '守望',
+    infinite: true
   }
 ]
 

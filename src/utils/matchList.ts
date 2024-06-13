@@ -4,6 +4,7 @@ import md5 from 'md5'
 
 const files = require.context('../dataSource', true, /\.json$/)
 const matchList = []
+let recentMatchDate = null
 
 const handleMatchData = (match) => {
   let gameCount = 0
@@ -20,7 +21,7 @@ const handleMatchData = (match) => {
         if (game.gameType === '加赛') {
           playOffGamePlayerList[teamIndex].push(item.player)
         }
-        if(!allGamePlayerList.includes(item.player)){
+        if (!allGamePlayerList.includes(item.player)) {
           allGamePlayerList.push(item.player)
         }
       })
@@ -34,13 +35,15 @@ const handleMatchData = (match) => {
   })
   match.realMatchTeamList = match.matchTeamList.map((team, index) => {
     return team.map((item) => {
-      if (gamePlayerList[index].filter((player) => {
-        return player === item.player
-      }).length >= gameCount) {
+      if (
+        gamePlayerList[index].filter((player) => {
+          return player === item.player
+        }).length >= gameCount
+      ) {
         return item
       } else {
         return {
-          player: 'X',//index === 0 ? 'X' : 'Y',
+          player: 'X', //index === 0 ? 'X' : 'Y',
           order: item.order,
           replace: true
         }
@@ -59,6 +62,12 @@ files.keys().forEach((key) => {
   match.id = id
   handleMatchData(match)
   matchList.push(match)
+  if (
+    !recentMatchDate ||
+    (recentMatchDate && dayjs(recentMatchDate) < dayjs(match.matchDate))
+  ) {
+    recentMatchDate = match.matchDate
+  }
 })
 // 日期从小到大排列
 // matchList.sort((a, b) => {
@@ -67,4 +76,8 @@ files.keys().forEach((key) => {
 export default () => {
   // 深复制，防止修改
   return JSON.parse(JSON.stringify(matchList))
+}
+
+export const getRecentMatchDate = () => {
+  return recentMatchDate
 }

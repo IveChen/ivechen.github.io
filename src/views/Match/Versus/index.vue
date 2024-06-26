@@ -99,7 +99,6 @@ const disabledDate = (v) => {
 }
 
 const handleSubmit = () => {
-  console.log('abc')
   if (!state.form.player1.length || !state.form.player2.length) {
     ElMessage.error('请选择对抗人员')
     return false
@@ -120,7 +119,6 @@ const handleSubmit = () => {
     }
     return true
   })
-  console.log(matchList)
 }
 </script>
 <style lang="less" scoped></style>

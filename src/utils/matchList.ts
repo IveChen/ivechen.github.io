@@ -60,6 +60,7 @@ files.keys().forEach((key) => {
   const id = md5(key)
   const match = files(key)
   match.id = id
+  match.fileName = key.split('/')[1]
   handleMatchData(match)
   matchList.push(match)
   if (

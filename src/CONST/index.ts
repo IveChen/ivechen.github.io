@@ -121,6 +121,16 @@ export const PlayerList = [
   },
   {
     fullName: '??',
+    name: 'Krystal',
+    nickName: 'K'
+  },
+  {
+    fullName: '??',
+    name: '肉山',
+    nickName: '肉'
+  },
+  {
+    fullName: '??',
     name: '九朵',
     nickName: '九'
   },

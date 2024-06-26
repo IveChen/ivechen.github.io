@@ -177,7 +177,6 @@ const player = computed(() => {
   const { playerManagement } = parsedData.value
   return playerManagement.getPlayer(nickName)
 })
-console.log(player)
 const orderList = computed(() => {
   const list = player.value.orderList
   return list.sort((a, b) => {

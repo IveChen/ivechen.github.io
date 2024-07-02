@@ -312,8 +312,16 @@ export const PlayerList = [
   }
 ]
 
-export const IgnoreAnalysisPlayerList = ['超管', '水友', 'X', 'Y', '教授', '炉石', '魔兽']
-export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷']
+export const IgnoreAnalysisPlayerList = [
+  '超管',
+  '水友',
+  'X',
+  'Y',
+  '教授',
+  '炉石',
+  '魔兽'
+]
+export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷', 'K']
 
 // 选人模式 定员指跟队长一边
 export const BPPlayerModeList = ['选马模式', '限人选马', '固定人员', '丢人模式']
@@ -345,7 +353,14 @@ export const PlayerOrderListForAnalysis = [
   '固定'
 ]
 // 比赛类型
-export const MatchTypeList = ['TICU正赛', '对黑', 'DLC', '国际TICU', '其他', '水友赛']
+export const MatchTypeList = [
+  'TICU正赛',
+  '对黑',
+  'DLC',
+  '国际TICU',
+  '其他',
+  '水友赛'
+]
 // 比赛模式
 export const MatchModeList = [
   '队长模式',
@@ -361,7 +376,7 @@ export const TeamLocationList = ['天辉', '夜魇']
 
 export enum TeamIndex {
   Team1 = 0,
-  Team2 = 1,
+  Team2 = 1
 }
 // 队伍列表
 export const TeamList = [

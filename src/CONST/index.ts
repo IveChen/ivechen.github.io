@@ -321,7 +321,7 @@ export const IgnoreAnalysisPlayerList = [
   '炉石',
   '魔兽'
 ]
-export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷', 'K']
+export const OverpowerPlayerList = ['妖', '驴', '咖', '刘', '鲷', 'K', 'Scarlett']
 
 // 选人模式 定员指跟队长一边
 export const BPPlayerModeList = ['选马模式', '限人选马', '固定人员', '丢人模式']
